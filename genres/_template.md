@@ -58,11 +58,11 @@ Any metatags that are particularly effective or problematic for this genre.
 
 ## Slider Settings
 
-| Slider | Recommended Value | Rationale |
-|--------|------------------|-----------|
-| Creativity | X/10 | |
-| Clarity | X/10 | |
-| [Other sliders] | | |
+| Slider | Recommended Value (0–100) | Rationale |
+|--------|--------------------------|-----------|
+| Weirdness | X | |
+| Style Influence | X | |
+| Audio Influence | X | Only relevant when uploading a reference audio clip |
 
 ---
 

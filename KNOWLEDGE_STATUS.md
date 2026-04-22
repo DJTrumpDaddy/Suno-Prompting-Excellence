@@ -21,7 +21,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Genre | Status | File | Last Updated |
 |-------|--------|------|-------------|
-| *(none yet — files created on demand)* | — | — | — |
+| Happy Hardcore EDM (S3RL style) | ✅ | `genres/happy-hardcore-edm.md` | 2026-04-22 |
 
 ---
 
@@ -51,9 +51,9 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 Tracks which genres have documented slider recommendations.
 
-| Genre | Creativity | Clarity | Other | Status |
-|-------|-----------|---------|-------|--------|
-| *(populated as genres are added)* | | | | |
+| Genre | Weirdness | Style Influence | Notes | Status |
+|-------|----------|----------------|-------|--------|
+| Happy Hardcore EDM | 45–55 | 65–75 | Chorus pass: 40 / 75 | ✅ |
 
 ---
 
@@ -61,4 +61,4 @@ Tracks which genres have documented slider recommendations.
 
 - **Date:** 2026-04-22
 - **Coverage summary:** Core files fully researched and populated from verified 2025–2026 sources. Slider names corrected to actual v5 names (Weirdness, Style Influence, Audio Influence). Character limits confirmed (style: 1000 chars, lyrics: 3000–5000 chars). [Build]/[Drop] tags added. No genre files yet.
-- **Next priority:** First genre request will establish the genre file template in practice.
+- **Next priority:** Second genre request will test on-demand creation workflow.
