@@ -1,83 +1,179 @@
 # Suno v5 Metatags Reference
 
-> **Status:** Research in progress — populated 2026-04-22
-> **Scope:** Suno v5 behavior. Quirks noted where version-specific.
+> **Status:** Researched and verified — 2026-04-22
+> **Scope:** Suno v5 and v5.5. v5 respects metatags significantly more consistently than v4.
 
 ---
 
-## Standard Section Tags
+## How Metatags Work
 
-| Tag | Effect | Notes |
-|-----|--------|-------|
-| `[Intro]` | Opens the song, usually instrumental or short | Suno may extend or shorten automatically |
-| `[Verse]` or `[Verse 1]` | Standard lyric verse | Numbered variants (`[Verse 1]`, `[Verse 2]`) help differentiation |
-| `[Pre-Chorus]` | Build section before chorus | Reliably triggers a transitional feel |
-| `[Chorus]` | Main hook | Most-weighted section; repeated lyrics reinforce it |
-| `[Post-Chorus]` | Continuation after chorus | Less reliably implemented; use sparingly |
-| `[Bridge]` | Contrasting section | Place after second chorus; may be ignored if placed too early |
-| `[Outro]` | Closing section | Can be tagged `[Outro]` or `[Fade Out]` |
-
----
-
-## Instrumental & Vocal Control Tags
-
-| Tag | Effect | Notes |
-|-----|--------|-------|
-| `[Instrumental]` | Suppresses vocals for that section | Works most reliably when it wraps an entire section |
-| `[Interlude]` | Short instrumental break | Similar to `[Instrumental]` but implies a shorter gap |
-| `[Break]` | Drum break or full drop | Genre-dependent; in EDM/hip-hop contexts triggers a full breakdown |
-| `[Solo]` | Instrument solo (guitar, synth, etc.) | Works better when instrument is specified in style block |
-
----
-
-## Vocal Style Tags
-
-| Tag | Effect | Notes |
-|-----|--------|-------|
-| `[Spoken]` | Spoken word delivery, no melody | Reliable in v5; may drift to half-sung |
-| `[Rap]` | Rap/hip-hop vocal delivery | Works well; combine with fast lyric density |
-| `[Hook]` | Short, repeated melodic phrase | Often used interchangeably with `[Chorus]` |
-| `[Ad-lib]` | Improvised-sounding vocal additions | Less consistent; may be ignored |
-
----
-
-## Annotation / Modifier Tags
-
-*(Research in progress — these are tags that go inside section headers)*
-
-- `[Verse 1 — melancholic]` — emotional direction within a section
-- `[Chorus — big, anthemic]` — intensity modifier
-- Named singer tags: `[Alice:]` before a lyric line (multi-voice songs)
-
----
-
-## Known Quirks
-
-- **`[Bridge]` placement matters** — bridges placed before the second chorus often get skipped. Place after the second chorus.
-- **Numbered sections help** — `[Verse 1]` and `[Verse 2]` are more likely to produce distinct content than two `[Verse]` tags.
-- **Case sensitivity** — `[verse]` (lowercase) may be ignored. Use title case: `[Verse]`.
-- **Tag density** — too many tags in a short lyric block (>1 tag per 4 lines) can cause skipping.
-- **`[Outro]` and repetition** — Suno v5 tends to loop the outro if it's too short. Give it at least 4 lines.
-
----
-
-## Section Tag Placement Rules
+Metatags are bracketed keywords placed in the **Lyrics field** on their own line, *before* the section they describe. They are "structural reinforcement cues" — they tell Suno where section boundaries are and what performance intent applies.
 
 ```
-[Intro]          ← Always first if used
-[Verse 1]        ← First substantive section
-[Pre-Chorus]     ← Optional, before chorus
-[Chorus]         ← First appearance
-[Verse 2]        ← Second verse
-[Pre-Chorus]     ← Optional repeat
-[Chorus]         ← Repeat
-[Bridge]         ← After second chorus — NOT before
-[Chorus]         ← Final chorus (optional)
-[Outro]          ← Last section
+[Verse 1]
+In the silence of the night
+I feel you close to me
+
+[Chorus]
+We are fire and light
+```
+
+**Rules:**
+- Each metatag goes on its own line
+- Use title case: `[Verse]` not `[verse]` (lowercase may be ignored)
+- Keep tags short: 1–3 words maximum; longer tags are less reliably parsed
+- Don't over-stack — more than ~1 tag per 4 lines causes skipping behavior
+- Tags work best as structural signals, not paragraph-level micro-direction
+
+---
+
+## Structure Tags
+
+| Tag | Effect | Notes |
+|-----|--------|-------|
+| `[Intro]` | Opens the song, usually instrumental or short | Suno may extend or shorten; keep it brief |
+| `[Verse]` / `[Verse 1]` | Standard lyric verse | Numbered variants produce more distinct content |
+| `[Verse 2]` | Second verse | Numbered helps Suno differentiate from Verse 1 |
+| `[Pre-Chorus]` | Build section before chorus | Reliably triggers transitional energy |
+| `[Chorus]` | Main hook/refrain | Most-weighted section; repeat lyrics reinforce memorability |
+| `[Post-Chorus]` | Continuation after chorus | Less consistent; use sparingly or skip |
+| `[Bridge]` | Contrasting section | **Place after second chorus** — before that, often skipped |
+| `[Hook]` | Short, memorable melodic phrase | Interchangeable with `[Chorus]` in practice |
+| `[Outro]` / `[Ending]` | Closing section | Give at least 4 lines or Suno will loop |
+| `[Fade Out]` | Signals gradual volume fade at end | Works in most genres |
+
+---
+
+## Instrumental & Energy Tags
+
+| Tag | Effect | Notes |
+|-----|--------|-------|
+| `[Instrumental]` | Suppresses vocals for that section | Most reliable when wrapping an entire section |
+| `[Interlude]` | Short instrumental break between sections | Implies shorter gap than `[Instrumental]` |
+| `[Break]` | Drum break or full arrangement drop | In EDM/hip-hop, triggers a full breakdown moment |
+| `[Solo]` | Featured instrument solo | Name the instrument in the style block for best results |
+| `[Build]` | Gradually increases energy/complexity/intensity | v5 addition; use before a Drop or Chorus for tension |
+| `[Drop]` | Payoff moment — rhythm, bass, or hook engages fully | v5 addition; only impactful when preceded by a thin Build |
+
+### [Build] and [Drop] Usage Rules
+- `[Build]` = the rising conflict; `[Drop]` = the moment it breaks open
+- Use `[Build]` in bridge or pre-chorus positions only — not in every section
+- The verse before a build should be **musically thin** to create contrast
+- Don't stack `[Build]` with 10+ other modifiers — causes drift
+- Genre fit: EDM, dubstep, hip-hop, pop — less relevant for folk or classical
+
+---
+
+## Vocal Delivery Tags
+
+| Tag | Effect | Notes |
+|-----|--------|-------|
+| `[Rap]` / `[Rap Verse]` | Hip-hop vocal delivery | Suno defaults to melody; tag explicitly to force rap |
+| `[Spoken]` / `[Spoken Word]` | Spoken delivery, no melody | Reliable in v5; may drift to half-sung occasionally |
+| `[Whispered]` | Very soft, close-mic vocal | Works well for intimacy; genre-dependent |
+| `[Belted]` | Powerful, high-volume vocal delivery | Best in pop, gospel, musical theatre |
+| `[Falsetto]` | High, light head-voice | Works in R&B, indie pop |
+| `[Ad-lib]` | Improvised-sounding background vocals | Inconsistent; may be ignored |
+| `[Harmonies]` | Stacked background harmonies | Most reliable in pop, soul, gospel |
+| `[Duet]` | Two-voice delivery | Specify male/female in style block for best result |
+
+### Forcing Rap When Suno Sings Instead
+Add to style block: `"rap vocals, spoken flow, rhythmic delivery"`
+Add to lyrics section header: `[Rap Verse]` instead of `[Verse]`
+Both together = most reliable.
+
+---
+
+## Inline Vocal Modifiers
+
+These can be used inside a section alongside lyrics (not necessarily on their own line):
+
+```
+[Verse 1]
+[Whispered] In the silence of the night
+[Building] I feel you close to me
+[Belted] WE WERE NEVER MEANT TO SAY GOODBYE
+```
+
+---
+
+## Multi-Voice / Character Tags
+
+For songs with multiple distinct voices:
+```
+[Verse 1]
+[Alice:] I waited by the door
+[Bob:] I never thought you'd come
+[Together:] But here we are
+```
+Specify voice characters in style block for personality consistency.
+
+---
+
+## Complete Tag Quick Reference
+
+### Confirmed Reliable in v5
+`[Intro]` `[Verse]` `[Verse 1]` `[Verse 2]` `[Verse 3]`
+`[Pre-Chorus]` `[Chorus]` `[Bridge]` `[Outro]`
+`[Instrumental]` `[Break]` `[Solo]`
+`[Build]` `[Drop]`
+`[Rap]` `[Rap Verse]` `[Spoken]`
+`[Whispered]` `[Belted]` `[Harmonies]`
+
+### Use With Care (Variable Reliability)
+`[Post-Chorus]` `[Hook]` `[Interlude]` `[Ad-lib]` `[Falsetto]`
+`[Fade Out]` — works in most but not all genres
+
+### Known Problematic
+- `[verse]` (lowercase) — may be ignored; use title case
+- Bridges placed before the second chorus — often skipped
+- More than ~1 tag per 4 lines — causes tag skipping
+- Outro with fewer than 4 lines — Suno loops it
+
+---
+
+## Recommended Song Structure Template
+
+```
+[Intro]
+(optional 2-4 lines or leave empty for pure instrumental)
+
+[Verse 1]
+(4-8 lines)
+
+[Pre-Chorus]
+(2-4 lines — optional)
+
+[Chorus]
+(4-6 lines — the hook)
+
+[Verse 2]
+(4-8 lines — new content)
+
+[Pre-Chorus]
+(optional repeat)
+
+[Chorus]
+(repeat chorus lyrics)
+
+[Bridge]
+(4-6 lines — contrasting content)
+
+[Chorus]
+(final chorus — optional repeat)
+
+[Outro]
+(4+ lines — fade or definitive end)
 ```
 
 ---
 
 ## Sources
 
-*(To be populated from research)*
+- JackRighteous — "Suno AI Meta Tags & Song Structure Command Guide" (2026)
+- JackRighteous — "Mastering [Build] & [Drop] in Suno AI for Dynamic Tracks"
+- HookGenius — "All Suno Metatags: Structure, Voice & Style" (2026)
+- Suno.wiki — "Voice Tags" FAQ
+- Medium / James 99 — "The Ultimate Guide to Suno AI Metatags" (2025)
+- TitanXT — "Guide to Suno AI Prompting: Metatags Explained"
+- LilyS AI Notes — "Suno v5 Powerful Metatags" (2025)

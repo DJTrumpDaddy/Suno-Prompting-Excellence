@@ -46,10 +46,11 @@ Output exactly:
 ```
 
 **SLIDER SETTINGS:**
-| Slider | Value | Rationale |
-|--------|-------|-----------|
-| Creativity | X/10 | ... |
-| Clarity | X/10 | ... |
+| Slider | Value (0–100) | Rationale |
+|--------|--------------|-----------|
+| Weirdness | X | ... |
+| Style Influence | X | ... |
+| Audio Influence | X | (only relevant if user uploads reference audio) |
 
 ---
 

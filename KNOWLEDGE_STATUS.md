@@ -10,10 +10,10 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Area | Status | Notes |
 |------|--------|-------|
-| Suno v5 fundamentals (prompt mechanics) | ✅ | See `core/suno-v5-fundamentals.md` |
-| Metatags reference | ✅ | See `core/metatags.md` |
-| Slider parameters | ✅ | See `core/sliders.md` |
-| v4 → v5 behavioral differences | ⚠️ | Partially documented in fundamentals |
+| Suno v5 fundamentals (prompt mechanics) | ✅ | Character limits, style block rules, lyric field rules, vocal tips |
+| Metatags reference | ✅ | Full tag list, [Build]/[Drop], voice tags, placement rules, quirks |
+| Slider parameters | ✅ | Weirdness, Style Influence, Audio Influence — genre matrix included |
+| v4 → v5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — song length, vocals, metatag reliability |
 
 ---
 
@@ -60,5 +60,5 @@ Tracks which genres have documented slider recommendations.
 ## Last Full Audit
 
 - **Date:** 2026-04-22
-- **Coverage summary:** Core files initialized. No genre files yet. Gap detection will trigger research on first genre-specific request.
+- **Coverage summary:** Core files fully researched and populated from verified 2025–2026 sources. Slider names corrected to actual v5 names (Weirdness, Style Influence, Audio Influence). Character limits confirmed (style: 1000 chars, lyrics: 3000–5000 chars). [Build]/[Drop] tags added. No genre files yet.
 - **Next priority:** First genre request will establish the genre file template in practice.
