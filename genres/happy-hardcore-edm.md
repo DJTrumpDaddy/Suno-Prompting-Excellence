@@ -141,6 +141,8 @@ The breakdown → build → drop sequence is the genre's defining moment. Don't 
 
 - **4-on-the-floor kick not present** → Add `"4-on-the-floor kick"` to style block. Generic EDM prompts often get 2-step or trap-patterned percussion instead.
 
+- **Vocals start immediately and sound badly distorted** → Suno cold-starts into vocals before the arrangement has time to establish itself; the vocal and kick collide before the mix settles. Fix: add an empty `[Intro]` tag as the very first line of the lyrics field (no content beneath it), and add `"8-bar instrumental intro"` to the style block. The empty `[Intro]` signals an instrumental lead-in; the style block tag reinforces the length. If distortion persists, add a line of wordless filler (`"aaah"` or `"oh-oh-oh"`) under `[Intro]` to give Suno more runway before `[Spoken]` or `[Verse 1]` kicks in. *(fix proposed 2026-04-23, awaiting user confirmation)*
+
 ---
 
 ## Example Prompt
