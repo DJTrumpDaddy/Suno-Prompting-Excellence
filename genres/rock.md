@@ -1,8 +1,8 @@
 # Genre: Rock
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -147,6 +147,16 @@ soft rock, rock ballad, clean electric guitar, emotional male vocals, piano, mel
 - **Verse and chorus feel the same energy level** → The `[Pre-Chorus]` tag is the most reliable fix — it gives Suno a structural ramp. Also ensure the chorus lyrics are shorter, more repetitive, and written more declaratively than the verse.
 
 - **Era cues ignored** → Pair the era descriptor with a production texture cue: `"70s rock, warm analog"` works better than `"70s rock"` alone because it gives Suno both a period reference and a sonic instruction.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- [Guitar Solo] metatag guidance unchanged in v5.5
+- Era cues (70s, 90s) + production texture pairing still effective
+- v5.5 instrument separation improvement: individual guitar tracks come through more distinctly in the mix
+- Subgenre-first positioning in style block still required
+- All slider recommendations remain valid
 
 ---
 

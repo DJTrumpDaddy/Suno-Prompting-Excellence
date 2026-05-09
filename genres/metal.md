@@ -1,8 +1,8 @@
 # Genre: Metal
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -160,6 +160,17 @@ doom metal, slow, heavy, distorted, 80 BPM, droning guitar, low vocals, dark atm
 - **Black metal output sounds too polished** → Add `"raw lo-fi production"`, `"no polish"`, `"lo-fi black metal"`, and `"cassette tape quality"` to the style block. Suno v5 defaults to high-fidelity output; these tags actively suppress that tendency.
 
 - **Death metal output has audible melody — sounds like melodic death metal when brutal death was intended** → Prepend `"brutal"` before `"death metal"` and add `"no melody"` to the style block. `"slam death metal"` is also a reliable tag if that aesthetic fits.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- [Breakdown] in both style block AND lyrics still required for metalcore in v5.5
+- Double-kick drum explicit naming still required
+- v5.5 prompt accuracy improvement: subgenre tags ("death metal", "black metal", "thrash") follow more faithfully, reducing softening-into-hard-rock pitfall
+- Softening-into-hard-rock remains the #1 pitfall — unchanged; double-down on harsh vocal type naming
+- Instrument separation improvement in v5.5: individual riff elements and percussion hits come through more clearly
+- All slider recommendations remain valid
 
 ---
 

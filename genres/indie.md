@@ -1,5 +1,5 @@
 # Genre: Indie
-> Status: Verified | Last updated: 2026-04-26 | Suno version scope: v5
+> Status: Verified | Last updated: 2026-05-09 | Suno version scope: v5, v5.5
 
 ---
 
@@ -157,6 +157,15 @@ Indie favours standard song structures but with more room for irregularity than 
 
 **Issue:** Post-punk revival output sounds too soft and melodic — it lacks the angular, tense quality of the genre.
 → **Fix:** Add `"angular guitar riffs"`, `"tense"`, `"minimal"`, `"baritone male vocals"` and reduce Weirdness to 20–30. Also avoid any mood tags that soften the edge (`"beautiful"`, `"warm"`, `"cozy"`). Post-punk needs friction; remove anything that resolves it.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- "indie" alone still produces generic middle-ground in v5.5 — always pair with subgenre + production descriptor
+- Bedroom pop, post-punk revival, art rock subgenre distinctions unchanged
+- v5.5 improved prompt accuracy benefits indie more than most genres: nuanced style combinations (e.g., "indie folk-pop, bedroom production, fingerpicked guitar") follow more reliably
+- All slider recommendations remain valid
 
 ---
 

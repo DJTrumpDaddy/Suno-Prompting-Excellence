@@ -1,8 +1,8 @@
 # Genre: Punk
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -156,6 +156,16 @@ Punk songs are short. Keep the total structure compact — 4–6 sections maximu
 - **Power chords replaced by complex guitar parts** → Add `"power chords only"` and remove any tags that imply melodic sophistication (`"melodic"`, `"lead guitar"`, `"guitar solo"`). Punk guitar is intentionally simple — the style block needs to communicate that explicitly.
 
 - **Gang vocal effect absent on chorus** → Add `"gang vocals"` to the style block and write the chorus lines with short, chantable phrases. Also try adding `(gang vocals)` as a stage direction in parentheses on the same line as `[Chorus]`.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Lo-fi + anti-polish technique unchanged and still load-bearing in v5.5
+- BPM (160–220) numeric enforcement still required
+- Gang vocals and shouted delivery tags unchanged
+- v5.5 prompt accuracy improvement slightly increases risk: v5.5 may follow "punk" more literally, potentially adding unwanted polish — reinforce "lo-fi, raw, no production polish" if cleanliness appears
+- All slider recommendations remain valid
 
 ---
 
