@@ -37,7 +37,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 | Pop (mainstream, synth-pop, dance-pop, indie pop, bedroom pop) | ✅ | `genres/pop.md` | 2026-04-26 |
 | Hip-Hop / Rap (trap, boom bap, lo-fi, melodic rap, cloud rap, phonk, drill) | ✅ | `genres/hip-hop.md` | 2026-04-26 |
 | R&B / Soul (neo-soul, contemporary R&B, new jack swing, classic soul) | ✅ | `genres/rnb-soul.md` | 2026-04-26 |
-| K-Pop (idol pop, dark concept, ballad, EDM-pop hybrid, multilingual) | ✅ | `genres/k-pop.md` | 2026-04-26 |
+| K-Pop (idol pop, dark concept, ballad, EDM-pop hybrid, multilingual) | ❌ | `genres/k-pop.md` | *(file missing — to be created)* |
 
 ---
 
