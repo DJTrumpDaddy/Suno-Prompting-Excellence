@@ -1,5 +1,5 @@
 # Genre: Ambient
-> Status: Verified | Last updated: 2026-04-26 | Suno version scope: v5
+> Status: Verified | Last updated: 2026-05-09 | Suno version scope: v5, v5.5
 
 ---
 
@@ -150,6 +150,16 @@ For ambient with light vocal texture (Brian Eno-style wordless vocalise):
 
 **Issue:** Output is too short — Suno generates 1–2 minutes of ambient and hard-stops.
 → **Fix:** Add a longer lyrical structure (even if empty stanzas of `[Instrumental]` spaced out with line breaks) to give Suno length cues. In Suno v5 you can target up to 4 minutes. The lyrics field length loosely correlates with output duration — more content or spacing = longer generation.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Three-layer vocal suppression technique (style block "no vocals" + [Instrumental] + empty lyrics) still required and valid in v5.5
+- High Weirdness (45–65) recommendations unchanged
+- v5.5 instrument separation improvements benefit ambient: layered texture details come through more clearly
+- If using Audio Influence with a reference track for ambient: v5.5 picks up melodic/harmonic content at much lower slider values than v5. Use ≤8% for pure texture/vibe, or up to 20% for loose harmonic influence
+- Negative prompting ("no vocals", "no drums", "no percussion") is more effective in v5.5 due to improved prompt compliance
 
 ---
 

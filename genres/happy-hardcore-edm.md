@@ -1,8 +1,8 @@
 # Genre: Happy Hardcore EDM (S3RL Style)
 
 > **Status:** Verified
-> **Last updated:** 2026-04-22
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -140,6 +140,16 @@ The breakdown → build → drop sequence is the genre's defining moment. Don't 
 - **Lyrics sound like generic pop, not anime/kawaii** → Use explicit vocabulary in lyrics: kawaii terms, game/anime references, party crowd energy. Suno responds to lyric cues as much as style tags.
 
 - **4-on-the-floor kick not present** → Add `"4-on-the-floor kick"` to style block. Generic EDM prompts often get 2-step or trap-patterned percussion instead.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- All BPM enforcement guidance (165–180 BPM explicit) remains valid in v5.5
+- [Build]/[Drop] sequence guidance unchanged
+- If using Audio Influence with a reference track: use ≤8% for vibe-only extraction in v5.5 (changed from v5's 20–40% safe zone)
+- Pitched vocal techniques unchanged — "pitched female vocals, auto-tuned" still effective
+- Prompt accuracy improvement means S3RL-style descriptors follow more reliably
 
 ---
 

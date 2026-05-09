@@ -1,5 +1,5 @@
 # Genre: Electronic / Dance (EDM)
-> Status: Verified | Last updated: 2026-04-26 | Suno version scope: v5
+> Status: Verified | Last updated: 2026-05-09 | Suno version scope: v5, v5.5
 
 ---
 
@@ -153,6 +153,16 @@ EDM is often instrumental or vocal-minimal. When vocals are used, they serve as 
 
 **Issue:** Dubstep wobble bass is absent — instead Suno generates a simple house bassline.
 → **Fix:** Use `"wobble bass"`, `"LFO bass"`, and `"half-time drums"` together. Without `"half-time drums"`, the groove defaults to 4-on-the-floor and the wobble loses its rhythmic framing.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- All [Build]/[Drop] metatag guidance remains valid in v5.5
+- BPM enforcement techniques unchanged — numeric BPM in style block still most reliable
+- If using Audio Influence (Inspo) with a reference track: v5.5 picks up the melody much more aggressively than v5. For vibe-only extraction, use ≤8% (not the v5 safe zone of 20–40%)
+- Prompt accuracy improvement in v5.5 means genre-specific tags (e.g., "future bass", "drum and bass") are followed more faithfully
+- All slider recommendations remain valid; [Build]/[Drop] structural notes unchanged
 
 ---
 
