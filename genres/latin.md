@@ -1,8 +1,8 @@
 # Genre: Latin
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -199,6 +199,18 @@ Most Latin genres use verse-chorus structure. Reggaeton often uses verse-hook-ve
 - **Issue:** Bossa nova sounds like jazz or smooth jazz rather than Brazilian → **Fix:** Add `"Brazilian"`, `"João Gilberto style"`, and `"nylon string guitar"` or `"violão"`. The `"Brazilian"` tag is the critical differentiator. Without it, cool jazz and bossa nova are indistinguishable to Suno. Also ensure `"bossa nova"` is the first tag in the style block — its position matters.
 
 - **Issue:** Cumbia sounds like generic Latin pop without the characteristic "chug-chug" rhythm → **Fix:** Add `"caja drum"`, `"guacharaca"`, and `"accordion lead"` or `"cumbia flute"`. These three instrumentation tags together reliably distinguish cumbia's earthy percussion texture from the more polished Latin pop default.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Never use "latin" alone — this is unchanged and still critical in v5.5
+- Rhythm signature naming still required: "dembow rhythm" (reggaeton), "clave rhythm" (salsa), "caja drum" (cumbia), "syncopated guitar" (bachata)
+- v5.5 instrument separation improvement: percussion layers (congas, bongos, timbales, guiro) are more distinctly separated — significant benefit for salsa and cumbia
+- v5.5 prompt accuracy improvement: Latin subgenre tags (reggaeton, salsa, bossa nova, tango) follow more faithfully with fewer workaround tags needed
+- Chinese/dialect support improvement in v5.5 doesn't affect Latin but Spanish language support is similarly strong — Spanish lyrics in the lyrics field render naturally
+- If using Audio Influence with a Latin reference track: use ≤8% for vibe-only in v5.5 — the rhythmic pattern (clave, dembow) bleeds through at 20%+
+- All slider recommendations remain valid
 
 ---
 

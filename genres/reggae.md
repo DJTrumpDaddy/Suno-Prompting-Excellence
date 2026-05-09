@@ -1,8 +1,8 @@
 # Genre: Reggae / Dancehall
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -164,6 +164,18 @@ Dub (instrumental with vocal fragments):
 - **Issue:** Suno produces generic pop music with Jamaican-accented vocals but no rhythmic reggae feel. → **Fix:** Reggae identity lives in the rhythm section, not the vocals. Stack `"offbeat guitar skank"` + `"one-drop drums"` + `"deep melodic bass"` as the priority triplet. Vocal style alone (even with patois cues) is insufficient to generate authentic rhythm. The style block needs the rhythmic instruction first.
 
 - **Issue:** Dub requests produce a normal reggae track without echo, reverb, and the deconstructed dub aesthetic. → **Fix:** Use `"dub reggae"` not just `"dub"` (which is ambiguous with EDM dub/dubstep). Add `"spring reverb"`, `"tape echo"`, `"echo chamber"`, `"reverb-drenched"`. Include `"instrumental"` if vocals are not desired. The `[Bridge - dub break, echo]` metatag helps trigger the instrumental section.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- "Offbeat guitar skank" or "piano skank" remains the single most critical style tag in v5.5
+- One-drop drums + deep melodic bass trinity still required
+- Spring reverb + tape echo for dub still the core dub technique
+- v5.5 instrument separation improvement: the rhythmic interplay between skank guitar, bass, and percussion is more clearly separated in the mix — this benefits reggae/dub more than most genres
+- v5.5 prompt accuracy improvement: roots, dub, dancehall, and lovers rock subgenre tags follow more faithfully
+- If using Audio Influence with a reggae reference: use ≤8% for vibe-only in v5.5 (old v5 20–40% safe zone picks up original rhythm pattern)
+- All slider recommendations remain valid
 
 ---
 
