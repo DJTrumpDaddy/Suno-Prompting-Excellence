@@ -2,7 +2,7 @@
 
 > **Status:** [Draft | Reviewed | Verified]
 > **Last updated:** YYYY-MM-DD
-> **Suno version scope:** v5
+> **Suno version scope:** v5, v5.5
 
 ---
 
