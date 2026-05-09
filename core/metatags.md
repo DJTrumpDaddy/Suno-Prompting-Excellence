@@ -1,7 +1,8 @@
 # Suno v5 Metatags Reference
 
-> **Status:** Researched and verified — 2026-04-22
+> **Status:** Researched and verified — 2026-05-09
 > **Scope:** Suno v5 and v5.5. v5 respects metatags significantly more consistently than v4.
+> **v5.5 audit (2026-05-09):** No metatag changes confirmed between v5 and v5.5. All tags function identically. Reliability tiers unchanged. The same tag set applies to both versions.
 
 ---
 
@@ -168,6 +169,18 @@ Specify voice characters in style block for personality consistency.
 
 ---
 
+## v5.5 Metatag Notes
+
+> Research date: 2026-05-09
+
+**No changes between v5 and v5.5.** All existing metatags work identically. No new tags were added; no tags were deprecated; no reliability tiers changed.
+
+Community sources that continued referencing MILO-1080 in v5.5 context (blakecrosley.com) could not be accessed for verification — flagged for future research. All other confirmed sources agree: the tag system is unchanged.
+
+**One practical improvement:** v5.5's improved prompt accuracy makes the existing tags slightly more reliable, particularly for niche genres. This is not a new tag behavior but an improvement in model compliance.
+
+---
+
 ## Sources
 
 - JackRighteous — "Suno AI Meta Tags & Song Structure Command Guide" (2026)
@@ -177,3 +190,4 @@ Specify voice characters in style block for personality consistency.
 - Medium / James 99 — "The Ultimate Guide to Suno AI Metatags" (2025)
 - TitanXT — "Guide to Suno AI Prompting: Metatags Explained"
 - LilyS AI Notes — "Suno v5 Powerful Metatags" (2025)
+- v5.5 audit: research-log/2026-05-09-v5.5-changes.md

@@ -1,7 +1,8 @@
 # Suno v5 Slider Parameters
 
-> **Status:** Researched and verified — 2026-04-22
+> **Status:** Researched and verified — 2026-05-09
 > **Scope:** Suno v5 and v5.5. Slider names differ from v4.
+> **v5.5 audit (2026-05-09):** Weirdness and Style Influence unchanged. Audio Influence behavior changed significantly — see dedicated v5.5 section below.
 
 ---
 
@@ -60,17 +61,27 @@ Controls loyalty to your style block. Higher values = more genre-faithful output
 
 Controls how closely Suno follows an uploaded audio reference (melody, style, or vocal character).
 
+> **⚠️ v5.5 behavior change:** Audio Influence behaves significantly differently in v5.5 vs v5. The zones below reflect the v5.5 model. See the v5.5 notes section for details.
+
+**v5.5 zones (updated):**
+
 | Range | Behavior |
 |-------|----------|
-| 20–40 | Loose texture reference — only general mood/vibe |
-| 41–60 | Moderate influence — direction without copying |
-| 61–75 | Strong lead-vocal or style match |
-| 76–100 | Very tight match; risks sounding like a cover |
+| 0–5% | Almost kills melodic influence; vibe only |
+| 8% | Practical sweet spot — vibe extraction without melody bleed |
+| 15–25% | Faint trace of motif |
+| 20–30% | Picks up original melody fairly firmly |
+| 40% | Recommended for voice cloning (preserves vocal character) |
+| 50%+ | Remix/Mashup territory |
+| 70%+ | Near cover feel |
+| 76–100% | Very tight match; sounds like a cover |
 
-**Use cases:**
-- Lead vocal upload: 60–75
-- Texture/mood reference: 20–40
-- Style clone attempt: 70–85 (with legal/ethical care)
+**Use cases (v5.5):**
+- Vibe/mood extraction only: 0–8%
+- Faint stylistic influence: 10–20%
+- Voice cloning with Voices feature: ~40%
+- Strong style match: 60–70% (caution: melody will bleed)
+- Cover/mashup intent: 75%+
 
 ---
 
@@ -111,7 +122,41 @@ Controls how closely Suno follows an uploaded audio reference (melody, style, or
 | Max Style Influence always | Reduces variation; every generation sounds the same |
 | Lowering Weirdness to fix a structural issue | Sliders don't control structure; use metatags instead |
 | Not adjusting sliders between verse and chorus edits | Chorus needs more stability (lower Weirdness) than verse |
-| Using Audio Influence > 75 without a clear reference | Output sounds like a cover rather than an original |
+| Using Audio Influence > 20 expecting vibe-only in v5.5 | v5.5 picks up melody much earlier — use ≤8% for vibe-only |
+| Using 20–40% Audio Influence as "safe zone" in v5.5 | This was the v5 safe zone; in v5.5 it picks up the original melody firmly |
+
+---
+
+## v5.5 Slider Notes
+
+> Research date: 2026-05-09
+
+### Weirdness — Unchanged
+No behavioral change in v5.5. All genre recommendations in the Slider × Genre table remain valid.
+
+### Style Influence — Unchanged
+No behavioral change in v5.5. All genre recommendations remain valid.
+
+### Audio Influence — Significant Change in v5.5
+
+**What changed:** Before v5.5, Audio Influence (also called "Inspo") functioned as a vibe extractor — mid-range settings (20–40%) would pull the mood, groove, and texture of a reference while generating original chord progressions and melodies. In v5.5, the model "locks onto" the original melody at much lower slider values, behaving more like a Remix tool.
+
+**v5 vs v5.5 comparison:**
+
+| Slider Value | v5 Behavior | v5.5 Behavior |
+|-------------|-------------|---------------|
+| 0–5% | No influence | No influence (unchanged) |
+| 8% | Near-zero influence | Practical sweet spot for pure vibe |
+| 20–30% | Loose vibe extraction (safe zone) | Picks up original melody firmly |
+| 40–60% | Moderate style match | Remix/Mashup territory |
+| 61–75% | Strong style/vocal match | Near cover feel |
+| 76–100% | Cover risk | Cover (unchanged) |
+
+**Practical implications:**
+- **For vibe extraction:** Use 0–8% in v5.5 (was 20–40% in v5)
+- **For voice cloning with Voices:** Use ~40% to preserve vocal character
+- **Avoid the "risky midrange":** 20–50% in v5.5 blends vibe extraction with unwanted melody lock-on
+- **If using Inspo playlists:** Curate the playlist carefully; v5.5 is less forgiving of melodic references in the source
 
 ---
 
@@ -121,4 +166,6 @@ Controls how closely Suno follows an uploaded audio reference (melody, style, or
 - JackRighteous — "Creative Control Sliders in Suno v5"
 - Suno official help — "How to Use: Creative Sliders"
 - HookGenius — "Suno v5 Complete Guide" (2026)
-- Research compiled 2026-04-22
+- GenX Notes — "Suno v5.5 Inspo feels more like Remix now — and how I deal with it" (2026)
+- GenX Notes — "What do the Weirdness, Style Influence, and Audio Influence sliders do in Suno?" (2026)
+- Research compiled 2026-04-22; v5.5 Audio Influence section added 2026-05-09
