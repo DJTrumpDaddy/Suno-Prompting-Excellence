@@ -1,8 +1,8 @@
 # Genre: R&B / Soul
 
 > **Status:** Draft
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -179,6 +179,17 @@ For slow jams and neo-soul, the structure can be more fluid — longer verses, s
 - **90s new jack swing sounds generic** → Add `"swing rhythm"`, `"punchy drums"`, and a specific BPM (`"95 BPM"`). The swing feel is the genre's identity — without `"swing rhythm"` in the style block, Suno generates a straight-feel groove that reads as generic contemporary R&B.
 
 - **Outro fades too quickly** → Write at least 6–8 lines of `[Outro]` content with ad-lib direction. Suno's closing sections reflect the length of lyric material provided; a 2-line outro produces a hard cut.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Rhodes electric piano / B3 organ naming still required for authenticity in v5.5
+- Mix oversaturation remains the #1 pitfall — "warm, not wet" production language still the fix
+- v5.5 vocal quality improvement: emotional transitions and breathing feel more natural — particularly benefits neo-soul and slow R&B subgenres
+- v5.5 Voices feature: R&B/soul is one of the best use cases for voice cloning — the genre's vocal intimacy is preserved well
+- [Harmonies] and [Falsetto] tags unchanged and still effective
+- All slider recommendations remain valid
 
 ---
 

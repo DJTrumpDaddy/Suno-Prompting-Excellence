@@ -1,5 +1,5 @@
 # Genre: Soul & Funk
-> Status: Verified | Last updated: 2026-04-26 | Suno version scope: v5
+> Status: Verified | Last updated: 2026-05-09 | Suno version scope: v5, v5.5
 
 ---
 
@@ -165,6 +165,17 @@ Soul and funk both use traditional verse-chorus-bridge structures, but with key 
 
 **Issue:** The outro vamps and repeats forever without a clear resolution or fade.
 → **Fix:** Give `[Outro]` at least 4 lines of content (even if they repeat the chorus hook or a simple ad-lib phrase). Add `[Fade Out]` on its own line after the outro lyrics for a natural fade. For funk, a hard stop ending is idiomatic — end the lyrics abruptly and Suno will sometimes execute a one-bar cut-off.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- "syncopated groove" remains the single most critical style tag in v5.5
+- Slap bass + rhythm guitar chops + brass stabs trinity still the minimum viable stack
+- Wah-wah guitar must still be named explicitly
+- v5.5 instrument separation improvement: individual rhythm section elements (bass, guitar chops, brass stabs) come through more distinctly in the mix — this benefits soul/funk more than most genres
+- v5.5 prompt accuracy improvement: funk subgenre conventions follow more faithfully
+- All slider recommendations remain valid
 
 ---
 

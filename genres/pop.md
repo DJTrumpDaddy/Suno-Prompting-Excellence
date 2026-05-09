@@ -1,8 +1,8 @@
 # Genre: Pop
 
 > **Status:** Draft
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -150,6 +150,17 @@ Pop thrives on a clear architecture with a strong pre-chorus tension-builder:
 - **Output sounds dated or era-wrong** → Specify a production era: `"2020s pop production"`, `"80s synth-pop"`, `"90s alternative pop"`. Without era context, Suno averages across decades.
 
 - **Song ends too abruptly** → Add `[Outro]` with at least 4 lines of fade-out content. Suno generates shorter songs when outro material is thin.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- [Pre-Chorus] metatag still essential in v5.5 — skipping it still causes abrupt verse-to-chorus transitions
+- Subgenre-first positioning in style block still required — "pop" alone still produces generic radio filler
+- v5.5 prompt accuracy improvement: pop style descriptors (synth-pop, dark pop, dance-pop) followed more reliably; fewer takes needed before a good result
+- v5.5 Voices feature: pop vocal character is where voice cloning has the most impact — set Audio Influence to ~40% when using a Voice
+- Layered harmonies in chorus ([Harmonies] tag or "layered harmonies" in style block) still effective
+- All slider recommendations remain valid
 
 ---
 
