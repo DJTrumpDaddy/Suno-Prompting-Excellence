@@ -1,8 +1,8 @@
 # Genre: Alternative
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -178,6 +178,16 @@ The loud-quiet-loud structure (quiet verse, loud/distorted chorus) is the defini
 - **Vocals are too polished and clean for grunge/lo-fi indie** → Add `"raspy male vocals"` or `"raw vocals"` to the style block. Suno defaults to smooth, in-tune delivery. Also try `"no auto-tune"` as a negative production cue at the end of the style block.
 
 - **Output drifts toward indie pop rather than indie rock** → The distinction is guitar prominence. Add `"electric guitar forward"`, `"guitar-driven"`, or `"no synths"` to pull back toward the rock side. The presence or absence of synthesizer instrumentation is the key differentiator.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Loud-quiet-loud dynamic technique unchanged — [Pre-Chorus] + quiet verse/loud chorus contrast still the core approach
+- Shoegaze wall-of-sound technique unchanged
+- v5.5 prompt accuracy improvement: subgenre tags ("grunge", "shoegaze", "emo") follow more faithfully in v5.5
+- Instrument separation improvement in v5.5 benefits shoegaze: layered guitar textures come through more distinctly
+- All slider recommendations remain valid
 
 ---
 

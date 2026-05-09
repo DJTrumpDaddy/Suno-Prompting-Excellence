@@ -1,8 +1,8 @@
 # Genre: Hip-Hop / Rap
 
 > **Status:** Draft
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -166,6 +166,17 @@ For trap/drill specifically, hooks are often shorter and more rhythmically repet
 - **Hook gets rapped instead of sung** → For melodic rap or hooks that should be sung, use `[Chorus | Sung Hook]` and add `"sung hook"` or `"melodic hook"` to the style block. The model needs an explicit signal that the hook is an exception to the rap-delivery instruction.
 
 - **Track sounds like generic pop-rap despite tags** → Raise Style Influence to 80–85. Add a second genre anchor in position 2–3 of the style block (e.g., `"trap, dark, 808, rap vocals"` rather than `"trap, emotional, melodic, 808"`). Emotional/melodic tags pull toward pop-rap.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- [Rap Verse] metatag remains load-bearing in v5.5 — still required to prevent Suno from singing instead of rapping
+- Subgenre-first style block positioning unchanged — trap, boom bap, phonk, drill must lead the tag list
+- v5.5 prompt accuracy improvement: subgenre tags (e.g., "phonk", "drill", "cloud rap") follow more faithfully without needing as many reinforcing descriptors
+- If using Audio Influence with a reference beat: v5.5 picks up the original melody/pattern more aggressively than v5. Use ≤8% for vibe-only
+- Rap/sung hybrid techniques ([Rap Verse] + [Chorus]) unchanged and still effective
+- Chinese/dialect rap support improved in v5.5 (new feature)
 
 ---
 
