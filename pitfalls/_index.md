@@ -18,6 +18,7 @@ Quick-lookup table: symptom → diagnosis file. When a user reports a problem, s
 | Symptom | Likely Cause | File |
 |---------|-------------|------|
 | Vocals buried under instruments | Mix style tags or intensity | *(not yet documented)* |
+| Vocals distorted / clipping at song start | Aggressive style block + exclamation points + missing energy modifier on [Spoken] | see `genres/happy-hardcore-edm.md` — fix unconfirmed |
 | Instrument bleed into vocal sections | No `[Instrumental]` section delineation | *(not yet documented)* |
 | Wrong instrument dominant in mix | Style tag specificity | *(not yet documented)* |
 | Muddy low-end / unclear mix | Conflicting genre tags | *(not yet documented)* |

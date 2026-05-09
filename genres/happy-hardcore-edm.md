@@ -141,6 +141,13 @@ The breakdown → build → drop sequence is the genre's defining moment. Don't 
 
 - **4-on-the-floor kick not present** → Add `"4-on-the-floor kick"` to style block. Generic EDM prompts often get 2-step or trap-patterned percussion instead.
 
+- **Vocals start immediately and sound badly distorted** → Three compounding causes: (1) aggressive style block tags (`happy hardcore`, `rave stabs`, `175 BPM`) set the entire song's energy floor including the intro — `[Spoken]` lands on top of a full-aggression arrangement; (2) exclamation points in lyrics act as aggression signals that Suno carries forward chunk-to-chunk, compounding distortion; (3) `[Spoken]` without an energy modifier gives Suno no contrast signal. Full fix — apply all three:
+  1. Add `"soft-spoken intro"` or `"breathy close-mic intro"` to the style block so the opening section has a lower energy floor
+  2. Remove all exclamation points from `[Intro]` and `[Spoken]` sections; use periods and dashes instead
+  3. Change `[Spoken]` to `[Spoken | low energy]` and prefix with `[Intro | low energy | minimal]` (empty, no lyrics beneath it) — the pipe syntax scopes the energy modifier to that section only, without fighting the global style block
+  
+  If distortion persists after all three: add a line of wordless filler (`"aaah"`) under `[Intro | low energy | minimal]` to extend the buffer before vocals hit.
+
 ### v5.5 Audit Notes
 
 > Audited 2026-05-09. No breaking changes confirmed.

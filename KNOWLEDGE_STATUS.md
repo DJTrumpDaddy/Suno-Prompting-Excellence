@@ -11,7 +11,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 | Area | Status | Notes |
 |------|--------|-------|
 | Suno v5 fundamentals (prompt mechanics) | ✅ | Character limits, style block rules, lyric field rules, vocal tips |
-| Metatags reference | ✅ | Full tag list, [Build]/[Drop], voice tags, placement rules, quirks |
+| Metatags reference | ✅ | Full tag list, [Build]/[Drop], voice tags, placement rules, pipe syntax, energy tags, quirks |
 | Slider parameters | ✅ | Weirdness, Style Influence, Audio Influence — genre matrix included |
 | v4 → v5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — song length, vocals, metatag reliability |
 | v5 → v5.5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — Voices, Custom Models, My Taste, Audio Influence change |
@@ -53,7 +53,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 | Standard verse/chorus/bridge | ✅ | `core/metatags.md` |
 | Through-composed (no repeating sections) | ❌ | Needs research |
 | Multi-genre transitions | ❌ | Needs research |
-| Spoken word sections | ⚠️ | See `core/metatags.md` — `[Spoken]` tag notes |
+| Spoken word sections | ✅ | `core/metatags.md` — `[Spoken]` tag, pipe syntax, energy control for spoken intros in high-energy genres |
 | Rap/sung hybrid | ⚠️ | See `core/metatags.md` — `[Rap]` tag notes |
 | Long-form (5+ sections) | ❌ | Needs research |
 | Instrumental sections within vocal tracks | ⚠️ | See `core/metatags.md` |

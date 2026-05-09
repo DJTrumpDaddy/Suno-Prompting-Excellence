@@ -85,6 +85,46 @@ Both together = most reliable.
 
 ---
 
+## Pipe Syntax (Multi-Modifier Tags)
+
+Suno v5 supports stacking multiple descriptors inside a single section tag using the pipe `|` character. This lets you set energy, mood, and delivery at the section level rather than relying on the style block to do it globally.
+
+```
+[Intro | low energy | ambient | minimal]
+[Verse 1 | spoken word | low energy]
+[Chorus | high energy | layered vocals | euphoric]
+[Bridge | intimate | soft | close-mic]
+[Drop | high energy | distorted kick | intense]
+```
+
+**Rules:**
+- Structure tag comes first: `[Verse | ...]` not `[low energy | Verse]`
+- Pipe descriptors apply only to that section — they don't bleed into the next
+- Use 1–3 modifiers max; stacking more causes drift
+- Most useful for energy transitions: a `[Verse | low energy]` before a `[Drop | high energy]` creates the contrast the drop needs
+
+**Confirmed working modifier vocabulary:**
+- Energy: `low energy`, `high energy`, `building energy`
+- Mood: `euphoric`, `intense`, `intimate`, `melancholic`, `uplifting`
+- Delivery: `spoken word`, `whispered`, `close-mic`, `ambient`, `minimal`
+
+---
+
+## Energy & Mood Standalone Tags
+
+These can be placed on their own line to shift the section's character:
+
+```
+[Energy: High]
+[Energy: Low]
+[Mood: Uplifting]
+[Mood: Intense]
+```
+
+Less reliable than pipe syntax for section-scoped control — they can bleed into adjacent sections. Prefer pipe syntax when you need energy to change at a specific section boundary.
+
+---
+
 ## Inline Vocal Modifiers
 
 These can be used inside a section alongside lyrics (not necessarily on their own line):
@@ -125,11 +165,16 @@ Specify voice characters in style block for personality consistency.
 `[Post-Chorus]` `[Hook]` `[Interlude]` `[Ad-lib]` `[Falsetto]`
 `[Fade Out]` — works in most but not all genres
 
+### Pipe Syntax (Section-Scoped Modifiers)
+`[Verse | low energy]` `[Chorus | high energy]` `[Intro | ambient | minimal]`
+`[Verse | spoken word | low energy]` `[Drop | high energy | intense]`
+
 ### Known Problematic
 - `[verse]` (lowercase) — may be ignored; use title case
 - Bridges placed before the second chorus — often skipped
 - More than ~1 tag per 4 lines — causes tag skipping
 - Outro with fewer than 4 lines — Suno loops it
+- Pipe modifiers beyond 3 descriptors — causes drift
 
 ---
 
