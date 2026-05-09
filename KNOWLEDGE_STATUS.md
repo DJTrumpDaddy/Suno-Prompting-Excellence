@@ -14,6 +14,8 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 | Metatags reference | ✅ | Full tag list, [Build]/[Drop], voice tags, placement rules, quirks |
 | Slider parameters | ✅ | Weirdness, Style Influence, Audio Influence — genre matrix included |
 | v4 → v5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — song length, vocals, metatag reliability |
+| v5 → v5.5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — Voices, Custom Models, My Taste, Audio Influence change |
+| v5.5 Audio Influence slider change | ✅ | Documented in `core/sliders.md` — melody bleeds at much lower values; use ≤8% for vibe-only |
 
 ---
 
@@ -21,23 +23,26 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Genre | Status | File | Last Updated |
 |-------|--------|------|-------------|
-| Happy Hardcore EDM (S3RL style) | ✅ | `genres/happy-hardcore-edm.md` | 2026-04-22 |
-| Rock (classic, indie, hard, soft) | ✅ | `genres/rock.md` | 2026-04-26 |
-| Metal (thrash, death, black, metalcore, power, doom) | ✅ | `genres/metal.md` | 2026-04-26 |
-| Punk (classic, hardcore, pop-punk, Oi!, anarcho) | ✅ | `genres/punk.md` | 2026-04-26 |
-| Alternative (grunge, post-grunge, shoegaze, emo, indie) | ✅ | `genres/alternative.md` | 2026-04-26 |
-| Electronic / Dance (EDM: house, techno, trance, DnB, dubstep, future bass) | ✅ | `genres/electronic-dance.md` | 2026-04-26 |
-| Ambient (drone, dark ambient, nature, space, new age) | ✅ | `genres/ambient.md` | 2026-04-26 |
-| Indie (indie rock, indie pop, bedroom pop, post-punk revival, art rock) | ✅ | `genres/indie.md` | 2026-04-26 |
-| Soul & Funk (classic funk, neo-soul, classic soul, deep funk) | ✅ | `genres/soul-funk.md` | 2026-04-26 |
-| Country (classic, outlaw, honky-tonk, Nashville, Americana) | ✅ | `genres/country.md` | 2026-04-26 |
-| Folk & Acoustic (traditional, singer-songwriter, indie folk, Celtic) | ✅ | `genres/folk-acoustic.md` | 2026-04-26 |
-| Blues (Delta, Chicago, Texas, electric, blues rock) | ✅ | `genres/blues.md` | 2026-04-26 |
-| Reggae / Dancehall (roots, dub, dancehall, lovers rock) | ✅ | `genres/reggae.md` | 2026-04-26 |
-| Pop (mainstream, synth-pop, dance-pop, indie pop, bedroom pop) | ✅ | `genres/pop.md` | 2026-04-26 |
-| Hip-Hop / Rap (trap, boom bap, lo-fi, melodic rap, cloud rap, phonk, drill) | ✅ | `genres/hip-hop.md` | 2026-04-26 |
-| R&B / Soul (neo-soul, contemporary R&B, new jack swing, classic soul) | ✅ | `genres/rnb-soul.md` | 2026-04-26 |
-| K-Pop (idol pop, dark concept, ballad, EDM-pop hybrid, multilingual) | ❌ | `genres/k-pop.md` | *(file missing — to be created)* |
+| Happy Hardcore EDM (S3RL style) | ✅ | `genres/happy-hardcore-edm.md` | 2026-05-09 |
+| Rock (classic, indie, hard, soft) | ✅ | `genres/rock.md` | 2026-05-09 |
+| Metal (thrash, death, black, metalcore, power, doom) | ✅ | `genres/metal.md` | 2026-05-09 |
+| Punk (classic, hardcore, pop-punk, Oi!, anarcho) | ✅ | `genres/punk.md` | 2026-05-09 |
+| Alternative (grunge, post-grunge, shoegaze, emo, indie) | ✅ | `genres/alternative.md` | 2026-05-09 |
+| Electronic / Dance (EDM: house, techno, trance, DnB, dubstep, future bass) | ✅ | `genres/electronic-dance.md` | 2026-05-09 |
+| Ambient (drone, dark ambient, nature, space, new age) | ✅ | `genres/ambient.md` | 2026-05-09 |
+| Indie (indie rock, indie pop, bedroom pop, post-punk revival, art rock) | ✅ | `genres/indie.md` | 2026-05-09 |
+| Soul & Funk (classic funk, neo-soul, classic soul, deep funk) | ✅ | `genres/soul-funk.md` | 2026-05-09 |
+| Country (classic, outlaw, honky-tonk, Nashville, Americana) | ✅ | `genres/country.md` | 2026-05-09 |
+| Folk & Acoustic (traditional, singer-songwriter, indie folk, Celtic) | ✅ | `genres/folk-acoustic.md` | 2026-05-09 |
+| Blues (Delta, Chicago, Texas, electric, blues rock) | ✅ | `genres/blues.md` | 2026-05-09 |
+| Reggae / Dancehall (roots, dub, dancehall, lovers rock) | ✅ | `genres/reggae.md` | 2026-05-09 |
+| Pop (mainstream, synth-pop, dance-pop, indie pop, bedroom pop) | ✅ | `genres/pop.md` | 2026-05-09 |
+| Hip-Hop / Rap (trap, boom bap, lo-fi, melodic rap, cloud rap, phonk, drill) | ✅ | `genres/hip-hop.md` | 2026-05-09 |
+| R&B / Soul (neo-soul, contemporary R&B, new jack swing, classic soul) | ✅ | `genres/rnb-soul.md` | 2026-05-09 |
+| K-Pop (idol pop, dark concept, ballad, EDM-pop hybrid, multilingual) | ✅ | `genres/k-pop.md` | 2026-05-09 |
+| Jazz (bebop, swing, cool, modal, Latin jazz, smooth, fusion) | ✅ | `genres/jazz.md` | 2026-05-09 |
+| Classical (symphony, piano solo, string quartet, baroque, cinematic) | ✅ | `genres/classical.md` | 2026-05-09 |
+| Latin (reggaeton, salsa, cumbia, bachata, bossa nova, tango) | ✅ | `genres/latin.md` | 2026-05-09 |
 
 ---
 
@@ -82,14 +87,38 @@ Tracks which genres have documented slider recommendations.
 | Folk & Acoustic | 10–20 | 65–80 | Traditional: 10–15; Indie folk: 15–20 | ✅ |
 | Blues | 20–35 | 60–75 | Delta: 20–25; Chicago: 25–30; Blues rock: 30–35 | ✅ |
 | Reggae / Dancehall | 25–40 | 65–80 | Roots: 25–30; Dub: 35–40; Dancehall: 30–35 | ✅ |
+| Pop | 35–50 | 65–80 | Dark pop: 40–50 / 65–75; Dance-pop: 35–45 / 70–80 | ✅ |
+| Hip-Hop / Rap | 40–55 | 55–70 | Trap: 40–50; Boom bap: 45–55; Lo-fi: 50–60 / 45–60 | ✅ |
+| R&B / Soul | 40–55 | 60–75 | Neo-soul: 45–55; Contemporary R&B: 40–50 | ✅ |
+| K-Pop | 30–55 | 65–80 | Idol pop: 30–40 / 70–80; Dark concept: 40–55 / 65–75 | ✅ |
+| Jazz | 55–70 | 50–65 | Bebop: 60–70; Smooth: 45–55; Swing: 50–60 | ✅ |
+| Classical | 30–50 | 45–60 | Baroque: 30–40; Romantic: 40–50; Cinematic: 45–55 | ✅ |
+| Latin | 25–45 | 60–80 | Reggaeton: 30–40; Salsa: 35–45; Bossa nova: 25–35 | ✅ |
 
 ---
 
 ## Last Full Audit
 
-- **Date:** 2026-04-26
-- **Coverage summary:** Core files fully researched. 9 genre files now populated. Batch session added: electronic-dance, ambient, indie, soul-funk — all with full style tags, quirks, slider settings, and lyrics skeletons sourced from 2026 research.
-- **Next priority:** Structural techniques (through-composed, multi-genre transitions, long-form).
+- **Date:** 2026-05-09
+- **Coverage summary:** Full v5.5 audit complete. All 20 genre files verified against v5.5 behavior and version scope updated to `v5, v5.5`. `genres/k-pop.md` created (was listed in KNOWLEDGE_STATUS but file did not exist). Core files updated with v5 → v5.5 diff table, new features documentation, and Audio Influence slider behavior change. Slider × Genre Matrix completed for all 20 genres (Pop, Hip-Hop, R&B, K-Pop, Jazz, Classical, Latin rows were previously missing). Jazz and Classical genre files now listed in Genre Coverage table (were missing despite files existing).
+- **Next priority:** Structural techniques (through-composed, multi-genre transitions, long-form 5+ sections).
+
+---
+
+## 2026-05-09 Update (v5.5 Audit)
+
+- v5.5 research: documented Voices, Custom Models, My Taste new features
+- v5.5 research: documented significant Audio Influence slider behavior change (melody bleed at lower values; ≤8% sweet spot for vibe-only in v5.5)
+- Updated `core/suno-v5-fundamentals.md` — added v5→v5.5 diff table, new features section, negative prompting guide; updated style block descriptor guidance from 8–15 to 4–7 tags
+- Updated `core/metatags.md` — explicit v5.5 audit note confirming no tag changes between versions
+- Updated `core/sliders.md` — Audio Influence behavior change documented, v5 vs v5.5 comparison table, updated zones, practical implications
+- Created `research-log/` directory (was missing from initial scaffold)
+- Created `research-log/2026-05-09-v5.5-changes.md` — full raw research dump
+- Fixed KNOWLEDGE_STATUS: K-Pop was marked ✅ but `genres/k-pop.md` did not exist
+- Created `genres/k-pop.md` — full genre file: idol pop, dark concept, ballad, EDM-pop hybrid, multilingual; [Rap Verse] forcing, [Pre-Chorus] as load-bearing tag, Korean lyrics guidance
+- Audited all 20 genre files against v5.5 — version scope updated to `v5, v5.5`, v5.5 audit notes added to Known Quirks section in each file
+- Completed Slider × Genre Matrix — added Pop, Hip-Hop, R&B, K-Pop, Jazz, Classical, Latin rows (7 were missing)
+- Added Jazz, Classical, Latin rows to Genre Coverage table (files existed but were not listed)
 
 ## 2026-04-26 Update
 
