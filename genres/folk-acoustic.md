@@ -1,8 +1,8 @@
 # Genre: Folk & Acoustic
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -154,6 +154,16 @@ Narrative folk (through-verse structure):
 - **Issue:** The song becomes a full indie-pop track with layers of instrumentation because `"indie folk"` was used without additional anchors. → **Fix:** `"indie folk"` alone is ambiguous. Always add `"sparse arrangement"`, `"fingerpicked acoustic guitar"`, and instrument exclusions. The more instrument-specific the prompt, the more Suno is constrained to the right palette.
 
 - **Issue:** Vocals become over-emotive or belt-y — inappropriate for the quiet, conversational folk delivery. → **Fix:** Add `"intimate vocals"`, `"conversational delivery"`, `"soft"`, `"whispery"`, or `"no belting"`. Avoid `"powerful vocals"` or `"soulful"` — both push toward a more dramatic delivery style.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Exclusion prompting ("no electric instruments", "no drums") is MORE effective in v5.5 due to improved prompt compliance — this genre benefits significantly from v5.5's negative tag improvements
+- Fingerpicked acoustic guitar specificity still required; generic "acoustic guitar" still pulls toward strumming
+- Sparse arrangement requirements unchanged — production restraint techniques still valid
+- v5.5 improved prompt accuracy: traditional folk, singer-songwriter, and Celtic subgenre tags follow more faithfully
+- All slider recommendations remain valid
 
 ---
 

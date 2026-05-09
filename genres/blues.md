@@ -1,8 +1,8 @@
 # Genre: Blues
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -150,6 +150,17 @@ Modern blues with chorus (hybrid structure, more radio-friendly):
 - **Issue:** Vocals are smooth and melodically safe — no bends, growls, or raw expression. → **Fix:** Use `"raw vocals"`, `"gritty vocals"`, `"gravelly male voice"`, `"no autotune"`. Add `"expressive"` and avoid `"smooth"` entirely. For Delta-style rawness, combine `"raw recording"` with `"lo-fi"` to signal a low-budget, unprocessed vocal treatment.
 
 - **Issue:** Drums are tight and quantized — sounds like modern pop/R&B rather than a loose, human blues feel. → **Fix:** Add `"shuffled groove"`, `"loose drums"`, `"laid-back feel"`, or `"live drummer"`. The shuffle is the defining rhythmic feel of Chicago blues; naming it explicitly is the most reliable fix. Avoid `"tight drums"` or `"punchy kick"`.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- 12-bar blues structural prompt still the most reliable structural signal in v5.5
+- Harmonica forcing technique (name explicitly in style block) unchanged
+- AAB lyric form still the most natural fit for blues verses
+- Gritty tone is still essential — "smooth" remains the enemy; v5.5's prompt accuracy improvement means "gritty", "raw" tags are more faithfully respected
+- v5.5 instrument separation improvement benefits blues: guitar and harmonica are more distinctly separated in the mix
+- All slider recommendations remain valid
 
 ---
 

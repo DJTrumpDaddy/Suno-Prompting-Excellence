@@ -1,8 +1,8 @@
 # Genre: Classical
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -182,6 +182,17 @@ Classical is almost always instrumental. For the rare choral/operatic exception,
 - **Issue:** String quartet sounds like pop string arrangement (too much vibrato, modern mixing) → **Fix:** Add `"chamber music"`, `"period authentic"`, and the specific quartet composition: `"two violins, viola, cello"`. Also lower Weirdness to 10–15; higher Weirdness introduces production elements that break the chamber aesthetic.
 
 - **Issue:** Orchestral climax fails to build — dynamics stay flat → **Fix:** Add `"sweeping dynamics"` and `"fortissimo climax"` to the style block. In the `[Development]` or `[Recapitulation]` section tag, add a parenthetical: `(building to fortissimo, full orchestra, brass and timpani)`. Suno v5 reads these combined cues and attempts to execute the dynamic arc.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Triple vocal suppression (style block "no vocals" + [Instrumental] tag + empty/minimal lyrics) still required in v5.5
+- Pop vocal bleed remains the #1 pitfall — the technique unchanged but v5.5's improved negative prompt compliance makes "no vocals" slightly more reliable
+- v5.5 instrument separation improvement: orchestral sections (strings, brass, woodwinds) are more clearly differentiated in the mix — this is a significant improvement for classical
+- v5.5 prompt accuracy improvement: classical subgenre tags (baroque, romantic, contemporary classical) follow more faithfully
+- Negative prompting ("no pop drums", "no electric instruments") more effective in v5.5
+- All slider recommendations remain valid
 
 ---
 

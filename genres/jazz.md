@@ -1,8 +1,8 @@
 # Genre: Jazz
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -157,6 +157,17 @@ Jazz vocals follow the AABA 32-bar standard form, or blues 12-bar form. For Suno
 - **Issue:** Piano dominates and buries the horn/vocal → **Fix:** Add `"jazz piano comping"` instead of `"piano"`. The word "comping" signals a supportive, behind-the-beat role. Also add the lead instrument explicitly: `"saxophone lead"` or `"trumpet lead"`.
 
 - **Issue:** Walking bass is absent — bass sounds pop-mixed → **Fix:** Add `"walking bass"` and `"upright bass"` or `"double bass"` to style block. Without these, Suno uses a plucked electric bass pattern more suited to pop/R&B.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- [Solo] metatag still uniquely valuable for triggering improvisation-style instrumental passages in v5.5
+- Swing feel must still be specified explicitly — Suno v5.5 still defaults to straight-eighth pop feel
+- AABA 32-bar form guidance unchanged
+- v5.5 prompt accuracy improvement: jazz subgenre tags (bebop, cool, modal, smooth) follow more faithfully — "lounge jazz" default is less likely when subgenre is explicit
+- v5.5 instrument separation improvement: piano comping, walking bass, and lead horn are more distinguishable in the mix
+- All slider recommendations remain valid
 
 ---
 

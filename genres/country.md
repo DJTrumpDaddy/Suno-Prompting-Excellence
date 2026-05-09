@@ -1,8 +1,8 @@
 # Genre: Country
 
 > **Status:** Verified
-> **Last updated:** 2026-04-26
-> **Suno version scope:** v5
+> **Last updated:** 2026-05-09
+> **Suno version scope:** v5, v5.5
 
 ---
 
@@ -135,6 +135,17 @@ Up-tempo honky-tonk / bro-country:
 - **Issue:** Bridge section is ignored or blended into a third verse. → **Fix:** Place `[Bridge]` immediately after the second `[Chorus]` with a clear one-line direction in parentheses if needed: `[Bridge - emotional turn, softer]`. Keep bridge lyrics thematically distinct — a shift in perspective or time frame signals to Suno that a structural break is intended.
 
 - **Issue:** Outlaw or Americana requests produce sanitized Nashville sound instead of raw, gritty output. → **Fix:** Use `"outlaw country"`, `"raw production"`, `"no polish"`, `"gritty"`. Anchor with `"Waylon Jennings style"` or `"Willie Nelson feel"` as reference cues. Adding `"baritone male vocals"` discourages smooth tenor delivery.
+
+### v5.5 Audit Notes
+
+> Audited 2026-05-09. No breaking changes confirmed.
+
+- Pedal steel guitar and fiddle forcing techniques unchanged in v5.5
+- Twang vocal stack technique still effective
+- v5.5 instrument separation improvement: pedal steel, fiddle, and acoustic guitar are more distinguishable in the mix
+- v5.5 prompt accuracy improvement: outlaw, Americana, honky-tonk, and Nashville subgenre tags follow more faithfully
+- Negative prompting ("no electric guitar", "no synthesizers") more effective in v5.5 — useful for purist classic/outlaw country
+- All slider recommendations remain valid
 
 ---
 
