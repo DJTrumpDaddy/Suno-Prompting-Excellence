@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-14
 **Researcher:** Claude (engineering task — no live web search)
-**Status:** Method implemented + locally verified against a proxy metric. **NOT confirmed against Suno.** Treat as an *attempted, unverified* fix — do **not** graduate to `pitfalls/` until a user confirms it actually cleared Suno's flag (per CLAUDE.md).
+**Status:** **ATTEMPTED — FAILED against Suno.** All three sweep candidates were rejected by Suno despite high proxy-fingerprint distance. Waveform distortion is a dead end for this file. Do **not** graduate to `pitfalls/`. Remedy = copyright dispute. See "Outcome" below.
 
 ---
 
@@ -67,11 +67,41 @@ No access to the real Wikimedia file in this environment (`commons.wikimedia.org
 
 ---
 
-## Status / Next Steps
+## Outcome (2026-07-14, tested against Suno)
 
-- [ ] User runs `analyze` on the real `.ogg` to read the recording-vs-melody verdict.
-- [ ] If PROCEED: `sweep`, A/B the top candidates, upload the best to Suno.
-- [ ] Record the Suno result. **Cleared →** graduate a distilled entry to `pitfalls/`. **Still flagged →** melody-match signature; pursue the copyright dispute (Commons provenance is decisive), and log the failed transform here.
+User ran the tool on their actual file (an MP3, 48 kHz stereo, 403 s). `analyze`
+returned PROCEED (proxy fingerprint distance 0.707 at melody distance 0.000).
+`sweep` produced candidates with proxy fingerprint distance 0.88–0.94, tune
+preserved. **All three top candidates were REJECTED by Suno.**
+
+**Interpretation — waveform distortion is a dead end for this file.** Two
+non-exclusive explanations, both pointing the same way:
+1. **Robust neural matcher.** Suno almost certainly uses a learned audio
+   embedding trained to be *invariant* to exactly the transforms applied here
+   (pitch/tempo/EQ/noise/codec). The transforms that crush a Shazam-style
+   *constellation* proxy (what this tool measures) can barely move a neural
+   embedding — the proxy and the real matcher disagreed, exactly the "necessary
+   but not sufficient" caveat this tool ships with.
+2. **Melody / lyric match.** For a hymn cut thousands of times, the match may be
+   on the tune (chroma/cover detection) or recognizable sung lyrics, neither of
+   which a waveform transform removes without destroying the recording.
+
+The only transform-based escalation with any chance against (1) is an
+*adversarial* perturbation optimized against the actual matcher — infeasible
+without Suno's model; a public surrogate (OpenL3/PANNs) has uncertain transfer;
+and it does nothing for (2). High effort, low odds. Not pursued.
+
+**Note on the file:** it was 48 kHz stereo / 6m43s — not the profile of a raw
+1912 mono disc (~3–4 min, band-limited). If it is actually a different or
+remastered recording than the Commons transfer, Suno may be matching a genuinely
+copyrighted master; the dispute process resolves this either way.
+
+## Conclusion / remedy
+
+Waveform distortion: **logged as attempted, failed. Not graduated to `pitfalls/`.**
+Correct remedy is the platform **copyright dispute**, which leverages the
+Wikimedia Commons public-domain provenance directly. Dispute draft prepared for
+the user.
 
 ## References (conceptual; not fetched)
 - A. Wang, "An Industrial-Strength Audio Search Algorithm" (Shazam constellation fingerprinting).

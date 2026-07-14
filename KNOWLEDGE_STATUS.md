@@ -64,7 +64,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Symptom | Status | File |
 |---------|--------|------|
-| Copyright false-positive on public-domain audio | 🔬 | `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — method + tool `defingerprint.py`; unverified against Suno, not yet graduated to `pitfalls/` |
+| Copyright false-positive on public-domain audio | ⚠️ | `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — waveform transforms (`defingerprint.py`) **tested and REJECTED by Suno**; signature of a melody / robust-neural match. Remedy = copyright dispute, not distortion. Not graduated to `pitfalls/`. |
 
 ---
 
@@ -112,7 +112,8 @@ Tracks which genres have documented slider recommendations.
 - Built-in measurement harness: Shazam-style constellation fingerprint distance (want high) + chroma/melody distance (want low), so results are measurable locally instead of guessed against Suno
 - Added audio deps to `requirements.txt` (numpy, scipy, soundfile, librosa; optional system binaries auto-detected)
 - Created `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — method, local verification results, and honest limitations (proxy ≠ Suno's matcher; melody-match ceiling; ToS/account risk)
-- Pitfall Coverage: added a 🔬 research-in-progress row. **Unverified against Suno** — will not graduate to `pitfalls/` until a user confirms it clears the flag (per CLAUDE.md: never commit unverified fixes to `pitfalls/`)
+- Pitfall Coverage: added a row for copyright false-positives on public-domain audio
+- **Outcome (tested same day):** user ran the tool on their real file; all three sweep candidates were **REJECTED by Suno** despite high proxy-fingerprint distance. Waveform distortion is a dead end for this file — signature of a robust neural matcher and/or a melody/lyric match. Logged as *attempted, failed*; **nothing graduated to `pitfalls/`** (per CLAUDE.md). Correct remedy is the platform copyright dispute (leverages the file's public-domain provenance)
 
 ## 2026-05-09 Update (v5.5 Audit)
 
