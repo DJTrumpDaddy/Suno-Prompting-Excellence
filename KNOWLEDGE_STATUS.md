@@ -64,7 +64,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Symptom | Status | File |
 |---------|--------|------|
-| *(none yet — files created on demand)* | — | — |
+| Copyright false-positive on public-domain audio | 🔬 | `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — method + tool `defingerprint.py`; unverified against Suno, not yet graduated to `pitfalls/` |
 
 ---
 
@@ -104,6 +104,15 @@ Tracks which genres have documented slider recommendations.
 - **Next priority:** Structural techniques (through-composed, multi-genre transitions, long-form 5+ sections).
 
 ---
+
+## 2026-07-14 Update
+
+- Added `defingerprint.py` — a CLI tool that transforms a public-domain recording that a fingerprinter false-positives on, so the fingerprint moves while the performance stays recognizable. Modes: `analyze` (recording-vs-melody separability diagnosis), `process` (layered pipeline at low/medium/high), `sweep` (parameter search + auto-ranking with a local proxy metric)
+- Layered signal chain: coupled varispeed, decoupled micro pitch-shift, time-varying wow/flutter (primary disruptor), randomized multiband EQ, period-appropriate hiss/crackle, non-linear time-warp
+- Built-in measurement harness: Shazam-style constellation fingerprint distance (want high) + chroma/melody distance (want low), so results are measurable locally instead of guessed against Suno
+- Added audio deps to `requirements.txt` (numpy, scipy, soundfile, librosa; optional system binaries auto-detected)
+- Created `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — method, local verification results, and honest limitations (proxy ≠ Suno's matcher; melody-match ceiling; ToS/account risk)
+- Pitfall Coverage: added a 🔬 research-in-progress row. **Unverified against Suno** — will not graduate to `pitfalls/` until a user confirms it clears the flag (per CLAUDE.md: never commit unverified fixes to `pitfalls/`)
 
 ## 2026-05-09 Update (v5.5 Audit)
 
