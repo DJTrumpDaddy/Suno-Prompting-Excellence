@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-14
 **Researcher:** Claude (engineering task — no live web search)
-**Status:** **ATTEMPTED — FAILED against Suno.** All three sweep candidates were rejected by Suno despite high proxy-fingerprint distance. Waveform distortion is a dead end for this file. Do **not** graduate to `pitfalls/`. Remedy = copyright dispute. See "Outcome" below.
+**Status:** **CORRECTED — the failed test used the WRONG source file.** The earlier "distortion is a dead end / melody match" conclusion was drawn from a file the user later identified as a *different rendition* (a modern 48 kHz stereo 6m43s recording — likely a copyrighted master), not the public-domain 1912 transfer. That test is therefore invalid. Re-run on the genuine Wikimedia Commons transfer is underway; Suno result pending. See "Correction" below. Still not graduated to `pitfalls/`.
 
 ---
 
@@ -67,7 +67,28 @@ No access to the real Wikimedia file in this environment (`commons.wikimedia.org
 
 ---
 
-## Outcome (2026-07-14, tested against Suno)
+## Correction (2026-07-14, later) — wrong source file
+
+The "Outcome" test below is **invalid**: it was run on the wrong file. The user
+had ~20 renditions of this piece locally and uploaded a different one — a 48 kHz
+stereo, 6m43s recording (not the profile of a 1912 acoustic disc: mono, ~3–4 min,
+band-limited). Suno robustly recognized that file through 4× speed shifts,
+octave shifts, EQ, and noise — behavior consistent with a genuinely copyrighted
+master, not a false positive. This is why the file-profile mismatch flagged in
+the Outcome notes turned out to matter.
+
+The **genuine** Wikimedia Commons transfer (`...unrestored.ogg`, OGG Vorbis,
+44.1 kHz, 4m18s) was then supplied. `analyze` → PROCEED (fp 0.703 at melody
+0.000). A fresh 10-trial `sweep` produced candidates fp 0.88–0.97, tune
+preserved. **Suno result pending** — and note the untransformed genuine transfer
+may not be flagged at all (all prior rejections were the wrong recording).
+
+**Lesson for the KB:** verify source provenance *before* concluding a matcher is
+robust/melody-based. A "distortion can't win" result is meaningless if the file
+under test isn't the file in question. The tool's `analyze` profile check
+(sample rate / channels / duration vs. the expected source) is the guardrail.
+
+## Outcome (2026-07-14, tested against Suno — WRONG FILE, see Correction above)
 
 User ran the tool on their actual file (an MP3, 48 kHz stereo, 403 s). `analyze`
 returned PROCEED (proxy fingerprint distance 0.707 at melody distance 0.000).

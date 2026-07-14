@@ -64,7 +64,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Symptom | Status | File |
 |---------|--------|------|
-| Copyright false-positive on public-domain audio | ⚠️ | `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — waveform transforms (`defingerprint.py`) **tested and REJECTED by Suno**; signature of a melody / robust-neural match. Remedy = copyright dispute, not distortion. Not graduated to `pitfalls/`. |
+| Copyright false-positive on public-domain audio | 🔬 | `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — earlier "distortion failed / melody match" result was **the wrong source file** (a different, likely-copyrighted rendition); invalidated. Re-tested on the genuine PD transfer with `defingerprint.py`; Suno result pending. Not graduated to `pitfalls/`. |
 
 ---
 
@@ -113,7 +113,7 @@ Tracks which genres have documented slider recommendations.
 - Added audio deps to `requirements.txt` (numpy, scipy, soundfile, librosa; optional system binaries auto-detected)
 - Created `research-log/2026-07-14-fingerprint-false-positive-transforms.md` — method, local verification results, and honest limitations (proxy ≠ Suno's matcher; melody-match ceiling; ToS/account risk)
 - Pitfall Coverage: added a row for copyright false-positives on public-domain audio
-- **Outcome (tested same day):** user ran the tool on their real file; all three sweep candidates were **REJECTED by Suno** despite high proxy-fingerprint distance. Waveform distortion is a dead end for this file — signature of a robust neural matcher and/or a melody/lyric match. Logged as *attempted, failed*; **nothing graduated to `pitfalls/`** (per CLAUDE.md). Correct remedy is the platform copyright dispute (leverages the file's public-domain provenance)
+- **Outcome (tested same day):** early candidates were rejected by Suno — **but this test used the WRONG source file** (a different, likely-copyrighted rendition the user uploaded by mistake), so that "distortion is a dead end / melody match" conclusion is **invalidated**. On the genuine Wikimedia Commons PD transfer (OGG, 44.1 kHz, 4m18s), `analyze` returns PROCEED and a fresh 10-trial sweep yields fp 0.88–0.97 with the tune preserved; Suno result pending (the untransformed genuine file may not even be flagged). Nothing graduated to `pitfalls/`. **KB lesson:** verify source provenance before concluding a matcher is robust/melody-based
 
 ## 2026-05-09 Update (v5.5 Audit)
 
