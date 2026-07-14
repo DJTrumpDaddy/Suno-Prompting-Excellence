@@ -1,1 +1,12 @@
 anthropic>=0.40.0
+
+# Audio tooling for defingerprint.py (fingerprint-resistant transform of a
+# public-domain recording that a matcher false-positives on).
+# numpy/scipy/soundfile are required; librosa adds the decoupled pitch shift and
+# the chroma/melody metric. Optional system binaries (ffmpeg, rubberband,
+# chromaprint/fpcalc) are auto-used if present but are not required — the tool
+# runs pure-Python without them.
+numpy>=1.26
+scipy>=1.11
+soundfile>=0.12
+librosa>=0.10
