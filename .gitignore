@@ -1,0 +1,20 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Audio artifacts produced by defingerprint.py runs (candidates, sweeps, outputs)
+candidates/
+candidates_*/
+*.wav
+*.flac
+*.ogg
+*.mp3
+
+# OS cruft
+.DS_Store
