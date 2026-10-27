@@ -2,7 +2,7 @@
 
 A maintained knowledge base for creating Suno prompts with Claude or other assistants. The current general guidance targets **v6 Advanced mode**: manual Style, Lyrics and creation controls. Suno's help pages also call this workflow Custom mode.
 
-**General guidance reviewed:** 2026-10-27. This was a documentation review, not an audio-generation benchmark. Existing genre guides retain their v5/v5.5 scope until individually tested.
+**General guidance reviewed:** 2026-10-27. This was a documentation review, not an audio-generation benchmark. A focused v6 vocal lounge jazz guide separates sourced musical guidance from untested prompt experiments. Older genre guides retain their v5/v5.5 scope.
 
 ## Start Here
 
@@ -11,6 +11,7 @@ A maintained knowledge base for creating Suno prompts with Claude or other assis
 | [core/suno-v6-fundamentals.md](core/suno-v6-fundamentals.md) | Current fields, style brief, vocal direction, lyric preservation and sources |
 | [core/sliders.md](core/sliders.md) | Creative controls, including Variety and Max Mode |
 | [core/metatags.md](core/metatags.md) | Sparse lyric cues and limits of unverified tag rules |
+| [genres/vocal-lounge-jazz.md](genres/vocal-lounge-jazz.md) | Intimate small-combo vocal swing: instrumentation, phrasing, pacing and v6 comparisons |
 | [KNOWLEDGE_STATUS.md](KNOWLEDGE_STATUS.md) | Coverage, evidence gaps and historical genre settings |
 | [SKILL.md](SKILL.md) / [CLAUDE.md](CLAUDE.md) | Reusable generation and maintenance instructions |
 | `genres/[genre].md` | Genre vocabulary and historical examples; check version scope |

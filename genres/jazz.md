@@ -4,6 +4,8 @@
 > **Last updated:** 2026-05-09
 > **Suno version scope:** v5, v5.5
 
+> **Historical scope notice (2026-10-27):** The verification label and strong behavior claims below belong to the older guide; they are not validated v6 results. For intimate mid-century vocal swing, use [vocal-lounge-jazz.md](vocal-lounge-jazz.md). Current [metatag](../core/metatags.md) and [control](../core/sliders.md) guidance takes precedence over this file's parser and numeric recommendations.
+
 ---
 
 ## Overview

@@ -19,6 +19,8 @@ Variety, Weirdness and Style Influence address different things. Turning Variety
 
 ## Suggested First Pass — Not a Validated Preset
 
+For missed lyric cues, first see [the troubleshooting workflow](metatags.md#when-a-lyric-cue-is-ignored). No dedicated lyric-tag compliance slider was found in the reviewed official documentation. Style Influence is not documented as a strength control for bracket instructions in Lyrics. Max Mode's consistency recommendation does not establish exact pauses, bar counts or instrument switching. Weirdness 30 / Style Influence 80 is a possible comparison point, not a tag-enforcement preset.
+
 | Setting | Starting choice | Reason |
 |---------|-----------------|--------|
 | Model | v6, if available | Start with the model Suno recommends for control [3] |

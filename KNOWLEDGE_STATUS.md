@@ -2,7 +2,7 @@
 
 This file is Claude's coverage map. Before generating a prompt, Claude checks here to identify gaps that require research. After research, Claude updates this file.
 
-**Current target:** Suno v6 Advanced mode. General guidance reviewed 2026-10-27 using official documentation; no audio testing performed. Existing genre coverage and numeric matrices below describe historical v5/v5.5 work, not v6 validation.
+**Current target:** Suno v6 Advanced mode. General guidance and focused vocal lounge jazz research reviewed 2026-10-27; no audio testing performed. Older genre coverage and numeric matrices below describe historical v5/v5.5 work, not v6 validation.
 
 **Legend:** ✅ Well-documented | ⚠️ Partial coverage | ❌ Not documented | 🔬 Research in progress
 
@@ -15,7 +15,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 | v6 Advanced mode fields and workflow | ✅ | `core/suno-v6-fundamentals.md`; official sources linked; templates are untested suggestions |
 | Model selection, Variety and Max Mode | ✅ | Official feature descriptions reviewed; see core guides |
 | Weirdness, Style Influence, Audio Influence | ✅ | Official general definitions; v6-specific numeric optima remain unknown |
-| Lyrics and metatag conventions | ⚠️ | `core/metatags.md`; no complete official v6 grammar or reliability audit found |
+| Lyrics and metatag conventions | ⚠️ | `core/metatags.md`; documented editing fallback and proposed cue comparisons; no complete official v6 grammar or reliability audit found |
 | Voice character and multi-speaker prompting | ⚠️ | Descriptive guidance; exact casting and turn switching not tested |
 | v6 character limits / truncation | ❌ | Not verified; use current client validation |
 | v6 genre-specific presets / reference thresholds | ❌ | Listening comparisons needed; do not inherit older percentages as facts |
@@ -25,10 +25,11 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 ## Genre Coverage
 
-All rows below retain their original v5/v5.5 scope and dates. ✅ means historically documented, not tested on v6.
+The focused vocal lounge jazz row targets v6 with documentation and musical research only. All other rows retain their original v5/v5.5 scope and dates. ✅ means historically documented, not tested on v6.
 
 | Genre | Status | File | Last Updated |
 |-------|--------|------|-------------|
+| Vocal lounge jazz (intimate small-combo swing) | ⚠️ | [genres/vocal-lounge-jazz.md](genres/vocal-lounge-jazz.md); v6 prompts untested | 2026-10-27 |
 | Happy Hardcore EDM (S3RL style) | ✅ | `genres/happy-hardcore-edm.md` | 2026-05-09 |
 | Rock (classic, indie, hard, soft) | ✅ | `genres/rock.md` | 2026-05-09 |
 | Metal (thrash, death, black, metalcore, power, doom) | ✅ | `genres/metal.md` | 2026-05-09 |
@@ -59,6 +60,7 @@ All rows below retain their original v5/v5.5 scope and dates. ✅ means historic
 | Standard verse/chorus/bridge | ⚠️ | `core/metatags.md`; conventions documented, listening validation pending |
 | Spoken word / rap-sung hybrid | ⚠️ | `core/metatags.md`; delivery cues are suggestions, not guarantees |
 | Instrumental sections within vocal tracks | ⚠️ | `core/metatags.md`; check vocal leakage in generated results |
+| A cappella endings, pauses and section lengths | ⚠️ | `core/metatags.md`; editing controls documented; prompt compliance untested |
 | Multi-voice / character switching | ⚠️ | Core guides cover descriptive prompts; exact routing unverified |
 | Through-composed, multi-genre transitions, long-form | ❌ | Targeted v6 research and listening comparisons needed |
 
@@ -100,6 +102,15 @@ Historical v5/v5.5 suggestions only. No row is a validated v6 preset; use `core/
 | Latin | 25–45 | 60–80 | Reggaeton: 30–40; Salsa: 35–45; Bossa nova: 25–35 | ✅ |
 
 ---
+
+## 2026-10-27 Update — Lyric Cues and Vocal Lounge Jazz
+
+- Added [focused genre research](genres/vocal-lounge-jazz.md) using Suno documentation, Berklee, the Herbie Hancock Institute of Jazz and Yamaha. Musical definitions do not validate Suno prompt behavior.
+- Added cue-simplification comparisons, explicit accompaniment-stop direction and section-editing fallback to `core/metatags.md`.
+- Clarified that Style Influence, Variety and Max Mode are not documented tag-enforcement controls.
+- Audited suggested solo lengths with duration arithmetic; no fixed bar count, syllable count or jazz slider preset is treated as optimal.
+- Added a dated [research log](research-log/2026-10-27-v6-lyric-tags-and-vocal-lounge-jazz.md) with sources, proposed comparisons and outstanding listening evidence.
+- **Validation:** Relative Markdown links, code-fence balance, whitespace checks and local genre-loader discovery; no Suno generations or paid API calls. No fix promoted to confirmed pitfalls.
 
 ## 2026-10-27 Update — v6 General Prompting
 

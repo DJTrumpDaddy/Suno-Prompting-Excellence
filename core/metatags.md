@@ -63,6 +63,35 @@ Leave a light
 
 Use the structure the song needs. Repeating a chorus is a composition choice, not a mandatory parser requirement.
 
+## When a Lyric Cue Is Ignored
+
+**Evidence:** Documentation review on 2026-10-27; these comparisons have not been listening-tested. No dedicated lyric-tag compliance control or complete v6 bracket grammar was found in the reviewed official sources.
+
+1. Identify the audible requirement: the correct solo instrument, an unaccompanied ending, a softer singer, or an exact duration. Keep the lyric wording fixed.
+2. Test one simpler local cue while holding Style, settings and references constant. For example, compare a detailed piano-solo instruction with `[Piano Solo]` followed by `[Instrumental]`. Shorter wording is a hypothesis, not an established reliability advantage.
+3. In a separate comparison, reinforce an essential transition in Style. For an `[Outro]` / `[A Cappella]` cue, try: "All instruments stop before the outro; the same singer finishes alone." Keep subtle performance preferences in the global brief rather than stacking them onto every section.
+4. Evaluate the passage across the generated alternatives. Record what was actually followed; one successful take does not establish a universal tag rule.
+5. If the rest of the recording works, target the affected region with Replace Section. Suno documents selecting a region, entering a prompt, previewing alternatives and adjusting the transition. [1]
+
+| Requirement | Prompt or editing approach |
+|-------------|----------------------------|
+| A particular instrument takes a solo | Name it in Style and try a short local solo cue; verify by listening |
+| Voice alone at the end | State the accompaniment stop explicitly and try an a cappella cue; replace or extend the ending if needed |
+| A section of a chosen length | Use the editor's beat-count control when adding a section; a lyric tag such as `8 bars` is only a request [1] |
+| An exact silent gap or cutoff | Edit the audio timeline in Studio or a DAW; `[Long pause]` and `[End]` do not establish exact timing |
+| Preserve an existing melody | Use Cover with the recording as its reference; textual lyric tags alone do not carry the source melody [2] |
+
+Documented editing controls do not guarantee that every generated replacement will satisfy the requested sound. Labels and availability can vary by client and plan.
+
+**Slider limits:** Style Influence concerns Style input; Variety can rewrite Style; Weirdness concerns experimentation. None is documented as a strict lyric-tag compliance control. Max Mode is described for consistency and fidelity-sensitive work, not exact tag execution. See [sliders.md](sliders.md).
+
+Sources accessed 2026-10-27:
+
+1. [Suno: How to Use Song Editor](https://help.suno.com/en/articles/6141505) — updated 2025-05-30; region prompts and beat count for added sections. The [v6 feature overview](https://help.suno.com/en/articles/13924801), updated 2026-09-09, confirms Replace Section remains in the current toolset.
+2. [Suno: Cover](https://suno.com/products/covers) — source audio and melody preservation; no publication date shown.
+
+See the [research record](../research-log/2026-10-27-v6-lyric-tags-and-vocal-lounge-jazz.md) for evidence limits and proposed comparisons.
+
 ## Claims Not Established for v6
 
 Do not carry forward the old guide's universal claims that:
