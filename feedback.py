@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Suno v5 Feedback Triage
+Suno v6 Feedback Triage
 
 Report a problem with a Suno generation and get a diagnosed fix.
 Confirmed fixes are written to the KB; failed attempts are logged.
@@ -24,7 +24,9 @@ CORE_DIR = REPO_ROOT / "core"
 PITFALLS_DIR = REPO_ROOT / "pitfalls"
 RESEARCH_LOG_DIR = REPO_ROOT / "research-log"
 
-TRIAGE_SYSTEM_PROMPT = """You are an expert in diagnosing Suno v5 generation failures.
+TRIAGE_SYSTEM_PROMPT = """You are an expert in diagnosing Suno v6 generation failures.
+
+Use the current v6 Advanced mode core guidance. Historical v5/v5.5 observations are not validated v6 behavior. Preserve supplied lyrics and deliberate pronunciation spellings. You cannot browse or listen in this CLI, so do not claim research or successful tests. Check the exact model, Variety and other settings, full prompt and references; state what is missing. Do not invent internal processing mechanisms.
 
 You have access to a knowledge base of known pitfalls. Your job is to:
 
@@ -34,17 +36,17 @@ You have access to a knowledge base of known pitfalls. Your job is to:
    - Style (wrong genre feel, mood mismatch, tempo)
    - Lyrics (repeated lines, truncation, garbled words)
 
-2. DIAGNOSE the likely root cause in Suno v5's processing
+2. PROPOSE a likely cause; distinguish evidence from an untested hypothesis
 
 3. CHECK if this is already documented in the pitfalls index
 
 4. PROPOSE a specific fix with example (show the before/after in the prompt)
 
-5. EXPLAIN your reasoning — why do you believe this fix works mechanically in Suno v5?
+5. EXPLAIN the evidence and uncertainty; propose a controlled comparison changing one variable
 
 6. ASSESS your confidence: High / Medium / Low
-   - High = matches a documented pitfall pattern
-   - Medium = plausible based on Suno v5 fundamentals
+   - High = matches a user-tested pitfall for the same model and relevant conditions
+   - Medium = plausible based on Suno v6 fundamentals
    - Low = speculative, needs user testing
 
 Format your response EXACTLY as:
@@ -53,7 +55,7 @@ Format your response EXACTLY as:
 [Structural | Sonic | Style | Lyrics]
 
 ---ROOT_CAUSE---
-[Explanation of what caused this in Suno v5]
+[Likely cause, supporting evidence and uncertainty]
 
 ---KNOWN_PITFALL---
 [Yes: [pitfall file name] | No: this is undocumented]
@@ -62,13 +64,13 @@ Format your response EXACTLY as:
 [Specific fix with before/after example]
 
 ---REASONING---
-[Why this fix works mechanically]
+[Why this comparison may help; distinguish documentation from a hypothesis]
 
 ---CONFIDENCE---
 [High | Medium | Low] — [brief justification]
 
 ---KB_ACTION---
-[WRITE_TO_PITFALLS: [suggested-filename].md | LOG_AS_FAILED: [reason] | ALREADY_DOCUMENTED]
+[AWAIT_USER_TEST for a new proposal | WRITE_TO_PITFALLS: [suggested-filename].md only after user-confirmed success | LOG_AS_FAILED: [reason] only after reported failure | ALREADY_DOCUMENTED]
 """
 
 
@@ -82,13 +84,17 @@ def read_file_safe(path: Path) -> str:
 def load_triage_kb() -> str:
     sections = []
 
-    fundamentals = read_file_safe(CORE_DIR / "suno-v5-fundamentals.md")
+    fundamentals = read_file_safe(CORE_DIR / "suno-v6-fundamentals.md")
     if fundamentals:
-        sections.append(f"## Suno v5 Fundamentals\n\n{fundamentals}")
+        sections.append(f"## Suno v6 Fundamentals\n\n{fundamentals}")
 
     metatags = read_file_safe(CORE_DIR / "metatags.md")
     if metatags:
         sections.append(f"## Metatags\n\n{metatags}")
+
+    sliders = read_file_safe(CORE_DIR / "sliders.md")
+    if sliders:
+        sections.append(f"## Creation Controls\n\n{sliders}")
 
     pitfalls_index = read_file_safe(PITFALLS_DIR / "_index.md")
     if pitfalls_index:
@@ -158,7 +164,7 @@ def print_triage(issue: str, sections: dict) -> None:
     print(f"\n{divider}\n")
 
     # Prompt user
-    if "WRITE_TO_PITFALLS" in sections["kb_action"]:
+    if "WRITE_TO_PITFALLS" in sections["kb_action"] or "AWAIT_USER_TEST" in sections["kb_action"]:
         print("→ If this fix works for you, run with --commit to write it to the KB.")
         print("  If it fails, run with --log-failed to record the attempt.\n")
     elif "ALREADY_DOCUMENTED" in sections["kb_action"]:
@@ -270,7 +276,7 @@ def triage(issue: str, model: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Triage a Suno v5 generation problem.",
+        description="Triage a Suno v6 generation problem.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )

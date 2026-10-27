@@ -1,117 +1,40 @@
-# Suno v5 Prompt Engineering System — Claude Instructions
+# Suno v6 Advanced Mode — Repository Instructions
 
-This is a self-improving Suno v5 prompt engineering knowledge base. Follow this workflow for every interaction.
+Maintain this KB and use it to draft Suno prompts. Follow [SKILL.md](SKILL.md) for the four-artifact generation format.
 
----
+## Before Generating
 
-## When a User Asks to Generate a Song
+1. Read `KNOWLEDGE_STATUS.md`, `core/suno-v6-fundamentals.md`, `core/metatags.md` and `core/sliders.md`.
+2. Load the matching genre file and relevant pitfalls. Check version scope; existing genre recipes are v5/v5.5 material, not validated v6 presets.
+3. Research material gaps with official Suno sources first. Distinguish documented controls from listening-tested outcomes and untested workflow advice.
+4. Produce Title, Style block, Lyrics and Settings. Include Variety, Max Mode and Exclude where applicable, along with the model and creative sliders.
+5. Preserve supplied wording and pronunciation spellings unless edits are requested. Keep UI settings and explanations out of paste-ready Style/Lyrics text.
 
-### Step 1: Gap Detection (always run first)
+Do not enforce old character caps, descriptor counts, bridge placement or outro-length rules as v6 facts. Do not claim undocumented parser internals or guaranteed tag behavior. The current v6 core guides take precedence over historical notes.
 
-Read `KNOWLEDGE_STATUS.md` and check:
-- Is `genres/[genre].md` present and substantive for the requested genre?
-- Are any structural techniques requested (through-composed, multi-genre, spoken word) covered in the KB?
-- Are there known style tag interactions for this combination documented?
-- Are genre-specific slider settings documented?
+## Feedback Triage
 
-If any check is **thin or missing**:
-1. Run targeted web search (use `WebSearch` tool)
-2. Write findings to the appropriate KB file (create `genres/[genre].md` if it doesn't exist, use `genres/_template.md` as the base)
-3. Update `KNOWLEDGE_STATUS.md` to reflect new coverage
-4. Then proceed to generation
+1. Classify the issue: structural, sonic, style or lyrics.
+2. Check `pitfalls/_index.md`, the exact model, prompt, controls and reference inputs.
+3. Propose one targeted comparison and explain the evidence or uncertainty.
+4. Ask the user to test it. Do not report a fix as confirmed without a listening result.
+5. Record a confirmed remedy in `pitfalls/`; record failed or unconfirmed attempts in `research-log/`. Include model, date and result evidence.
 
-### Step 2: Load Relevant KB Files
+## KB Updates
 
-Always read:
-- `core/suno-v5-fundamentals.md`
-- `core/metatags.md`
-- `core/sliders.md`
+- Use `genres/_template.md` for new genre files and set the actual model/evidence scope.
+- Update `KNOWLEDGE_STATUS.md` after KB changes. A focused update does not count as a full genre audit.
+- Cite source URLs and access dates; separate official documentation from observations and conjecture.
+- Commit KB changes with a descriptive message, for example `kb: update v6 Advanced mode prompting guidance`.
 
-If genre file exists: `genres/[genre].md`
-
-### Step 3: Generate Four Artifacts
-
-Output exactly:
-
-**TITLE:** The song title
-
-**STYLE BLOCK:**
-```
-[comma-separated style/genre/mood descriptors — ~120 chars]
-```
-
-**LYRICS:**
-```
-[Full lyrics with Suno metatags: [Verse], [Chorus], [Bridge], etc.]
-```
-
-**SLIDER SETTINGS:**
-| Slider | Value (0–100) | Rationale |
-|--------|--------------|-----------|
-| Weirdness | X | ... |
-| Style Influence | X | ... |
-| Audio Influence | X | (only relevant if user uploads reference audio) |
-
----
-
-## When a User Reports a Problem
-
-### Feedback Triage Workflow
-
-1. **Classify** the issue:
-   - Structural (section ignored, wrong arrangement, truncation)
-   - Sonic (vocals buried, instrument bleed, mix)
-   - Style (wrong genre, mood mismatch, tempo)
-   - Lyrics (repetition, truncation, garbling)
-
-2. **Check** `pitfalls/_index.md` for a known solution
-
-3. **If undocumented**: run targeted web search for the specific failure mode
-
-4. **Propose** a specific fix with before/after example
-
-5. **Ask user to test** the fix
-
-6. **After user confirms result**:
-   - Fix worked → write to `pitfalls/[symptom].md`, update `pitfalls/_index.md`
-   - Fix failed → write to `research-log/YYYY-MM-DD-[topic].md` as "attempted, failed"
-   - **Never commit unverified fixes to pitfalls/**
-
----
-
-## KB Update Rules
-
-- Genre files are created on-demand when a new genre is first requested
-- Use `genres/_template.md` as the base for all new genre files
-- `KNOWLEDGE_STATUS.md` must be updated after every KB write
-- Research log entries go in `research-log/YYYY-MM-DD-[topic].md`
-- Commit all KB changes after writing them (use descriptive commit messages)
-
----
-
-## CLI Tools Available
+## CLI Tools
 
 ```bash
-# Generate a prompt
 python generate.py "your song idea here"
 python generate.py --genre synthwave "neon-soaked love song"
-
-# Triage a problem
 python feedback.py "the bridge was ignored entirely"
-
-# Commit a confirmed fix to KB
-python feedback.py "the bridge was ignored" --commit "use [Bridge] tag after second chorus" --filename bridge-ignored
-
-# Log a failed fix
-python feedback.py "vocals were buried" --log-failed "adding 'clear vocals' to style block"
+python feedback.py "the bridge was ignored" --commit "user-tested remedy here" --filename bridge-ignored
+python feedback.py "vocals were buried" --log-failed "adding clear vocals to Style"
 ```
 
----
-
-## Commit Style
-
-When writing KB updates to git:
-- `kb: add genres/[genre].md — initial research`
-- `kb: update KNOWLEDGE_STATUS.md — [genre] now covered`
-- `pitfalls: add [symptom].md — user-confirmed fix`
-- `research-log: [date] [topic] — attempted, failed`
+The CLI uses the Anthropic API to draft text, not the Suno generation API. It does not browse automatically; report research gaps rather than claiming to have researched or heard a result. Keep the existing `---TITLE---`, `---STYLE---`, `---LYRICS---`, `---SLIDERS---` and `---NOTES---` parser markers. The `---SLIDERS---` block now carries all creation settings, including nonnumeric options.

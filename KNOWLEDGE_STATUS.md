@@ -2,6 +2,8 @@
 
 This file is Claude's coverage map. Before generating a prompt, Claude checks here to identify gaps that require research. After research, Claude updates this file.
 
+**Current target:** Suno v6 Advanced mode. General guidance reviewed 2026-10-27 using official documentation; no audio testing performed. Existing genre coverage and numeric matrices below describe historical v5/v5.5 work, not v6 validation.
+
 **Legend:** ✅ Well-documented | ⚠️ Partial coverage | ❌ Not documented | 🔬 Research in progress
 
 ---
@@ -10,16 +12,20 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 | Area | Status | Notes |
 |------|--------|-------|
-| Suno v5 fundamentals (prompt mechanics) | ✅ | Character limits, style block rules, lyric field rules, vocal tips |
-| Metatags reference | ✅ | Full tag list, [Build]/[Drop], voice tags, placement rules, pipe syntax, energy tags, quirks |
-| Slider parameters | ✅ | Weirdness, Style Influence, Audio Influence — genre matrix included |
-| v4 → v5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — song length, vocals, metatag reliability |
-| v5 → v5.5 behavioral differences | ✅ | Documented in `core/suno-v5-fundamentals.md` — Voices, Custom Models, My Taste, Audio Influence change |
-| v5.5 Audio Influence slider change | ✅ | Documented in `core/sliders.md` — melody bleeds at much lower values; use ≤8% for vibe-only |
+| v6 Advanced mode fields and workflow | ✅ | `core/suno-v6-fundamentals.md`; official sources linked; templates are untested suggestions |
+| Model selection, Variety and Max Mode | ✅ | Official feature descriptions reviewed; see core guides |
+| Weirdness, Style Influence, Audio Influence | ✅ | Official general definitions; v6-specific numeric optima remain unknown |
+| Lyrics and metatag conventions | ⚠️ | `core/metatags.md`; no complete official v6 grammar or reliability audit found |
+| Voice character and multi-speaker prompting | ⚠️ | Descriptive guidance; exact casting and turn switching not tested |
+| v6 character limits / truncation | ❌ | Not verified; use current client validation |
+| v6 genre-specific presets / reference thresholds | ❌ | Listening comparisons needed; do not inherit older percentages as facts |
+| v5/v5.5 fundamentals and old audit | ⚠️ | Historical context in `core/suno-v5-fundamentals.md`; not current guidance |
 
 ---
 
 ## Genre Coverage
+
+All rows below retain their original v5/v5.5 scope and dates. ✅ means historically documented, not tested on v6.
 
 | Genre | Status | File | Last Updated |
 |-------|--------|------|-------------|
@@ -48,15 +54,13 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 ## Structural Techniques
 
-| Technique | Status | Location |
-|-----------|--------|---------|
-| Standard verse/chorus/bridge | ✅ | `core/metatags.md` |
-| Through-composed (no repeating sections) | ❌ | Needs research |
-| Multi-genre transitions | ❌ | Needs research |
-| Spoken word sections | ✅ | `core/metatags.md` — `[Spoken]` tag, pipe syntax, energy control for spoken intros in high-energy genres |
-| Rap/sung hybrid | ⚠️ | See `core/metatags.md` — `[Rap]` tag notes |
-| Long-form (5+ sections) | ❌ | Needs research |
-| Instrumental sections within vocal tracks | ⚠️ | See `core/metatags.md` |
+| Technique | v6 status | Location / next step |
+|-----------|-----------|----------------------|
+| Standard verse/chorus/bridge | ⚠️ | `core/metatags.md`; conventions documented, listening validation pending |
+| Spoken word / rap-sung hybrid | ⚠️ | `core/metatags.md`; delivery cues are suggestions, not guarantees |
+| Instrumental sections within vocal tracks | ⚠️ | `core/metatags.md`; check vocal leakage in generated results |
+| Multi-voice / character switching | ⚠️ | Core guides cover descriptive prompts; exact routing unverified |
+| Through-composed, multi-genre transitions, long-form | ❌ | Targeted v6 research and listening comparisons needed |
 
 ---
 
@@ -70,7 +74,7 @@ This file is Claude's coverage map. Before generating a prompt, Claude checks he
 
 ## Slider × Genre Matrix
 
-Tracks which genres have documented slider recommendations.
+Historical v5/v5.5 suggestions only. No row is a validated v6 preset; use `core/sliders.md` for current starting advice. Some old numeric recommendations differ across files and require fresh comparisons.
 
 | Genre | Weirdness | Style Influence | Notes | Status |
 |-------|----------|----------------|-------|--------|
@@ -97,7 +101,17 @@ Tracks which genres have documented slider recommendations.
 
 ---
 
-## Last Full Audit
+## 2026-10-27 Update — v6 General Prompting
+
+- Added a sourced Advanced-mode fundamentals guide and routed README, assistant instructions and both CLI tools to it.
+- Updated creative controls, field separation, vocal descriptions, lyric preservation and test workflow.
+- Replaced unsupported universal tag rules and numeric thresholds with explicitly qualified guidance.
+- Kept legacy fundamentals, genre guides and audit history scoped to their original versions.
+- Preserved CLI output markers; the settings block now includes non-slider creation options.
+- **Validation:** Documentation/source review and local CLI checks; no live Suno generations or Anthropic calls.
+- **Next priority:** Listening tests for the user's target genres, multi-voice dialogue and reference-audio behavior.
+
+## Last Full Audit — Historical
 
 - **Date:** 2026-05-09
 - **Coverage summary:** Full v5.5 audit complete. All 20 genre files verified against v5.5 behavior and version scope updated to `v5, v5.5`. `genres/k-pop.md` created (was listed in KNOWLEDGE_STATUS but file did not exist). Core files updated with v5 → v5.5 diff table, new features documentation, and Audio Influence slider behavior change. Slider × Genre Matrix completed for all 20 genres (Pop, Hip-Hop, R&B, K-Pop, Jazz, Classical, Latin rows were previously missing). Jazz and Classical genre files now listed in Genre Coverage table (were missing despite files existing).

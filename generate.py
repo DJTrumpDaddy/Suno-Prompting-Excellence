@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Suno v5 Prompt Generator
+Suno v6 Prompt Generator
 
 Usage:
   python generate.py "an 80s synth ballad about a road trip with my dad"
@@ -20,23 +20,25 @@ CORE_DIR = REPO_ROOT / "core"
 GENRES_DIR = REPO_ROOT / "genres"
 PITFALLS_DIR = REPO_ROOT / "pitfalls"
 
-SYSTEM_PROMPT = """You are an expert Suno v5 prompt engineer with deep knowledge of how Suno v5 interprets style blocks, metatags, slider settings, and lyric structure.
+SYSTEM_PROMPT = """You are an expert Suno v6 prompt engineer with deep knowledge of how Suno v6 interprets style blocks, metatags, slider settings, and lyric structure.
 
-You have been given a knowledge base (KB) of research on Suno v5. Use it as your primary reference.
+You have been given a knowledge base (KB). Use the current v6 core guides as your primary reference for Advanced mode (the manual Style/Lyrics workflow, also called Custom mode in Suno help). Historical v5/v5.5 genre files are hypotheses to retest, not validated v6 behavior.
+
+Separate documented controls, user-tested results and untested advice. You cannot browse or listen to Suno audio in this CLI; report material gaps without claiming new research or tests. Preserve supplied lyric wording, phonetic spellings and punctuation unless edits are requested. Do not invent character limits, mandatory tag syntax or internal model mechanisms.
 
 Your task is to produce four artifacts for a song prompt:
 
 1. **TITLE** — The song title as it would appear in Suno
-2. **STYLE BLOCK** — The style/genre/mood text fed into Suno's style field (comma-separated descriptors, ~120 chars max)
+2. **STYLE BLOCK** — The style/genre/mood text fed into Suno's style field (a compact musical brief; clear phrases or sentences, with no invented fixed character cap)
 3. **LYRICS** — Full lyrics using Suno metatags ([Verse], [Chorus], [Bridge], etc.)
-4. **SLIDER SETTINGS** — Recommended Suno v5 slider values with a one-line rationale for each
+4. **SETTINGS** — Model, Weirdness, Style Influence, Variety, Max Mode, Exclude and applicable Vocal Gender/Instrumental choices, each with a short rationale. Include Audio Influence only when an audio-reference workflow provides it. Use the starting advice in core/sliders.md; label it untested. If no justified numeric value is known, say "use current UI default; record value". Set Variety to 0 for a controlled wording comparison. Keep UI settings out of the Style and Lyrics fields. Retain the ---SLIDERS--- output marker for compatibility.
 
 Before generating, audit your coverage:
 - Is the requested genre well-covered in the KB?
 - Are there structural requirements (unusual structure, multi-genre, spoken word) that need special handling?
 - Are there known style tag conflicts for this combination?
 
-If the KB is thin on any of these, note the gap explicitly before your output (label it GAP DETECTED:).
+If the KB is thin on any of these, put a GAP DETECTED notice in the ---NOTES--- block. Do not claim to have researched the gap.
 
 Format your response EXACTLY as:
 ---TITLE---
@@ -49,8 +51,8 @@ Format your response EXACTLY as:
 [full lyrics with metatags]
 
 ---SLIDERS---
-[slider name]: [value] — [one-line rationale]
-[slider name]: [value] — [one-line rationale]
+[setting name]: [value or choice] — [one-line rationale]
+[setting name]: [value or choice] — [one-line rationale]
 ...
 
 ---NOTES---
@@ -73,9 +75,9 @@ def load_knowledge_base(genre_hint: str | None = None) -> str:
     if status:
         sections.append(f"## KNOWLEDGE_STATUS\n\n{status}")
 
-    fundamentals = read_file_safe(CORE_DIR / "suno-v5-fundamentals.md")
+    fundamentals = read_file_safe(CORE_DIR / "suno-v6-fundamentals.md")
     if fundamentals:
-        sections.append(f"## CORE: Suno v5 Fundamentals\n\n{fundamentals}")
+        sections.append(f"## CORE: Suno v6 Fundamentals\n\n{fundamentals}")
 
     metatags = read_file_safe(CORE_DIR / "metatags.md")
     if metatags:
@@ -147,7 +149,7 @@ def print_output(sections: dict) -> None:
     print(sections["lyrics"])
 
     print(f"\n{divider}")
-    print("  SLIDER SETTINGS")
+    print("  CREATION SETTINGS")
     print(divider)
     print(sections["sliders"])
 
@@ -206,7 +208,7 @@ def generate(idea: str, genre_hint: str | None, model: str) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Generate a Suno v5 prompt from a song idea.",
+        description="Generate a Suno v6 prompt from a song idea.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )

@@ -1,107 +1,38 @@
-# Suno v5 Prompt Engineering — Skill
-
-You are a Suno v5 prompt engineer. When the user describes a song idea, produce the four artifacts below. When they report a generation problem, run the feedback triage protocol.
-
+---
+name: suno-prompting-excellence
+description: Create and revise Suno v6 Advanced mode prompts, style briefs, lyric cues and creation settings. Use for song prompt generation or troubleshooting Suno outputs; preserve supplied lyric wording unless edits are requested.
 ---
 
-## Before Every Generation: Gap Detection
+# Suno v6 Advanced Mode Prompting
 
-Check these four things before generating. If any are thin, run a web search (`"[genre] Suno v5 prompt guide"`) before proceeding:
+## Load the Current Guidance
 
-1. **Genre coverage** — Is this genre well-represented in your training data or the KB? If unfamiliar, search first.
-2. **Structural complexity** — Through-composed, multi-genre, spoken-word, or 5+ section songs need extra care.
-3. **Style tag conflicts** — Are any requested descriptors likely to cancel each other out?
-4. **Slider fit** — Does the genre call for specific Weirdness/Style Influence settings?
+Read [KNOWLEDGE_STATUS.md](KNOWLEDGE_STATUS.md), [core/suno-v6-fundamentals.md](core/suno-v6-fundamentals.md), [core/metatags.md](core/metatags.md) and [core/sliders.md](core/sliders.md). Load the matching `genres/[genre].md` and [pitfalls/_index.md](pitfalls/_index.md) as needed.
 
-For genre files and past pitfalls, check the knowledge base repo:
-`github.com/djtrumpdaddy/suno-prompting-excellence`
-→ `genres/[genre].md` for genre-specific guidance
-→ `pitfalls/_index.md` for known failure modes
+Treat existing v5/v5.5 genre advice as historical hypotheses unless a dated v6 result supports it. Research material gaps using official Suno documentation first. Separate documented features, user-tested outcomes and untested advice; never invent a successful test or an internal model mechanism.
 
----
+## Produce Four Artifacts
 
-## The Four Artifacts
+**TITLE:** The display title.
 
-Output exactly these four sections, in this order, with these labels:
+**STYLE BLOCK:** A paste-ready compact brief covering genre/groove, instruments, vocal character, production and important arrangement changes. Use readable phrases or sentences; do not impose an invented tag count or character limit.
 
-**TITLE:**
-The song title as it appears in Suno.
+**LYRICS:** Exact supplied words with sparse section cues, or newly written lyrics when requested. Preserve pronunciation-directed spelling, syllable splits and punctuation. Put explanations outside the paste-ready block.
 
-**STYLE BLOCK:**
-```
-comma-separated descriptors — front-load genre/mood, 8–15 tags, stay under 1000 chars
-```
+**SETTINGS:** A table with model, Weirdness, Style Influence, Variety, Max Mode, Exclude and Vocal Gender/Instrumental when relevant. Include Audio Influence only when the workflow provides it for an audio reference. State values or "use current UI default; record value" and give brief reasons. Keep settings out of the Style and Lyrics fields.
 
-**LYRICS:**
-```
-Full lyrics using Suno metatags. Each tag on its own line before its section.
-```
+For a controlled first draft, use the choices in `core/sliders.md`, including Variety 0. Label starting advice as untested, not optimal. Check the current client's limits rather than asserting v5 caps.
 
-**SLIDER SETTINGS:**
-| Slider | Value (0–100) | Rationale |
-|--------|--------------|-----------|
-| Weirdness | X | controls drift from genre norms |
-| Style Influence | X | controls loyalty to style block |
-| Audio Influence | X | only set if user uploads a reference clip |
+## Apply Prompting Judgment
 
----
+- Describe voices by audible traits; a character name alone does not specify timbre.
+- Keep lyric cues concise. Do not promise exact speaker switching, tempo, section lengths or tag execution.
+- Use Exclude for unwanted traits and positive Style wording for the intended sound.
+- Do not assume the Style field executes Simple-mode editing or source-combination operations.
+- Resolve contradictions without flattening an intentional genre blend or rewriting the user's words.
 
-## Embedded KB Essentials
+## Triage and Maintain
 
-### Style Block Rules
-- Suno silently truncates at 1000 chars — put the most important tags first
-- Formula: `[genre+subgenre], [mood], [vocal character], [key instruments], [tempo/era]`
-- Specificity wins: `"breathy female vocals"` beats `"female vocals"`
-- No contradictory tags: `"heavy metal, soft acoustic ballad"` → unpredictable output
+Classify an issue as structural, sonic, style or lyrics. Check the model, full input text, settings and references, then propose one comparison with a before/after example. Call the diagnosis a hypothesis when evidence is incomplete.
 
-### Lyrics Rules
-- Custom mode limit: ~3000 chars — target 30–40 lines for a 3–4 min song
-- Punctuation = micro-pauses: `"I ran—and then I stood, / watching the lights…"`
-- Extend vowels for sustain: `"Loooove"`, `"Ohhhh"`
-- Short sparse lines → spacious delivery; dense lines → compressed/rap feel
-
-### Slider Starting Points
-- **Weirdness ~50, Style Influence ~60** for any new song — adjust one at a time
-- Chorus stability: lower Weirdness (35–45) + raise Style Influence (70–85)
-- Ambient/experimental: raise Weirdness (65–80) + lower Style Influence (35–55)
-- Sliders control behavior, not quality — they don't fix structural problems
-
-### Key Metatags (Confirmed Reliable in v5)
-`[Intro]` `[Verse 1]` `[Verse 2]` `[Pre-Chorus]` `[Chorus]` `[Bridge]` `[Outro]`
-`[Build]` `[Drop]` `[Break]` `[Instrumental]` `[Solo]`
-`[Rap]` `[Rap Verse]` `[Spoken]` `[Whispered]` `[Belted]` `[Harmonies]`
-
-**Three critical quirks:**
-- `[Bridge]` after the second `[Chorus]` only — placed earlier it's often skipped
-- Always title-case: `[Verse]` not `[verse]` — lowercase may be ignored
-- `[Outro]` needs ≥4 lines — shorter outros loop
-
----
-
-## Feedback Triage Protocol
-
-When the user reports a generation problem:
-
-1. **Classify** — Structural / Sonic / Style / Lyrics
-2. **Check** — Is this a known pattern? (see `pitfalls/_index.md` in the repo)
-3. **Propose** a specific fix with before/after example in the prompt
-4. **Ask user to test** the fix in Suno
-5. **After confirmation:**
-   - Fix worked → note it should be added to `pitfalls/[symptom].md` in the repo
-   - Fix failed → note it as "attempted, failed" for `research-log/`
-   - Never assert a fix is confirmed until the user reports back
-
----
-
-## Repo Reference
-
-Full knowledge base: `github.com/djtrumpdaddy/suno-prompting-excellence`
-
-| Path | Contains |
-|------|---------|
-| `core/suno-v5-fundamentals.md` | Prompt mechanics, character limits, v4→v5 differences |
-| `core/metatags.md` | Complete metatag reference |
-| `core/sliders.md` | Full slider guide with genre matrix |
-| `genres/[genre].md` | Genre-specific style tags, structure, sliders |
-| `pitfalls/_index.md` | Symptom → fix lookup |
-| `KNOWLEDGE_STATUS.md` | Coverage map — what's documented vs. thin |
+Request the listening result before recording a fix as confirmed. Save failed or unconfirmed experiments in `research-log/`; save confirmed fixes in `pitfalls/` with the exact model and evidence. Update `KNOWLEDGE_STATUS.md` after a KB change and commit changes according to [CLAUDE.md](CLAUDE.md).

@@ -38,7 +38,8 @@ Recent KB commits (to avoid duplicating work already committed):
 
 Read the provided content carefully. For each finding you identify, note:
 - What type it is (see taxonomy below)
-- What the exact evidence is (quote the signal phrase)
+- What the exact evidence is (quote the signal phrase), including model and settings
+- Whether it is official documentation, a user-tested result or an untested recommendation
 - What KB action it warrants
 
 ### Finding Taxonomy
@@ -59,7 +60,7 @@ Read the provided content carefully. For each finding you identify, note:
 #### Type D — Gap Detection
 **Signals:** A genre was requested that has no `genres/[genre].md` file, Claude flagged thin KB coverage, or an undocumented structural technique (through-composed, multi-genre transitions, 5+ sections) came up.
 **Action:**
-- For missing genre: run a targeted `WebSearch` for `"[genre] Suno v5 prompt guide"`, then create `genres/[genre].md` using `@genres/_template.md` as the base. Update `KNOWLEDGE_STATUS.md` genre table.
+- For missing genre: run a targeted `WebSearch` for `"[genre] Suno v6 Advanced mode prompting"`, then create `genres/[genre].md` using `@genres/_template.md` as the base. Update `KNOWLEDGE_STATUS.md` genre table.
 - For structural technique: research and add to the appropriate `core/` file or a new genre file.
 
 #### Type E — Generation Feedback / Style Notes
@@ -70,7 +71,7 @@ Read the provided content carefully. For each finding you identify, note:
 - If the full prompt + outcome is rated/noted → add to `examples/[song-slug].md` and `examples/_index.md`
 
 #### Type F — General KB Improvement
-**Signals:** A metatag behaved unexpectedly, a character limit was hit, a v5 mechanic was observed that isn't documented.
+**Signals:** A metatag behaved unexpectedly, a character limit was hit, a model-specific behavior was observed that isn't documented.
 **Action:** Update the relevant `core/` file. Note the finding and its source date.
 
 ---
@@ -87,7 +88,7 @@ For each write:
 After all writes, update `KNOWLEDGE_STATUS.md`:
 - Add any new genre rows to the Genre Coverage table
 - Add any new pitfall rows to Pitfall Coverage
-- Update the "Last Full Audit" section with today's date and a one-line summary
+- Add a dated update summary. Change "Last Full Audit" only after an actual full audit; do not relabel older genre findings as v6-tested.
 
 ---
 

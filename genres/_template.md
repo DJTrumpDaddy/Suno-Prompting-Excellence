@@ -2,13 +2,14 @@
 
 > **Status:** [Draft | Reviewed | Verified]
 > **Last updated:** YYYY-MM-DD
-> **Suno version scope:** v5, v5.5
+> **Suno version scope:** [v6 | v6-wild | v6-mini; record the actual model]
+> **Evidence:** [Official documentation | User-tested result | Untested recommendation]
 
 ---
 
 ## Overview
 
-Brief description of the genre's key sonic characteristics and how Suno v5 typically handles it.
+Brief description of the genre's key sonic characteristics and any model-specific behavior supported by evidence.
 
 ---
 
@@ -21,7 +22,7 @@ List the most effective style/genre tags for this genre (comma-separated as used
 ```
 
 ### Effective Modifiers
-Additional descriptors that reliably shift the output in useful ways:
+Candidate descriptors; label whether they were tested and describe the observed result:
 - `[modifier]` — what it does
 - `[modifier]` — what it does
 
@@ -62,9 +63,12 @@ Any metatags that are particularly effective or problematic for this genre.
 |--------|--------------------------|-----------|
 | Weirdness | X | |
 | Style Influence | X | |
-| Audio Influence | X | Only relevant when uploading a reference audio clip |
+| Variety | 0 for a controlled comparison | Record any intentional exploration setting |
+| Audio Influence | N/A or recorded value | Only when the workflow provides this control |
 
 ---
+
+State whether these are tested values or starting hypotheses. Also record Max Mode, Exclude, vocal controls and reference inputs where applicable.
 
 ## Known Quirks & Pitfalls
 

@@ -1,67 +1,34 @@
-# Suno v5 Prompt Engineering — Knowledge Base
+# Suno v6 Advanced Mode Prompting — Knowledge Base
 
-This repository is a self-improving knowledge base for generating high-quality Suno v5 prompts using Claude. It is actively maintained by Claude: knowledge gaps are detected before each generation run, researched, and written back here.
+A maintained knowledge base for creating Suno prompts with Claude or other assistants. The current general guidance targets **v6 Advanced mode**: manual Style, Lyrics and creation controls. Suno's help pages also call this workflow Custom mode.
 
----
+**General guidance reviewed:** 2026-10-27. This was a documentation review, not an audio-generation benchmark. Existing genre guides retain their v5/v5.5 scope until individually tested.
 
-## How Claude Uses This Repo
-
-Every time a user submits a song idea, Claude:
-
-1. **Reads** `KNOWLEDGE_STATUS.md` to assess coverage for the request's genre, structure, and techniques
-2. **Detects gaps** — if coverage is thin or absent, runs targeted web research before generating
-3. **Generates** four artifacts: Title, Style block, Lyrics with metatags, Slider settings
-4. **Improves** — when users report issues, Claude diagnoses, researches, and writes confirmed fixes into `pitfalls/`; failed experiments go to `research-log/` so they aren't repeated
-
----
-
-## Directory Structure
-
-```
-/
-├── README.md                    # This file
-├── KNOWLEDGE_STATUS.md          # Coverage map — what's solid vs. thin
-│
-├── core/
-│   ├── suno-v5-fundamentals.md  # How Suno v5 interprets prompts, slider behavior
-│   ├── metatags.md              # Full metatag reference + known quirks
-│   └── sliders.md               # Slider parameter guide with genre context
-│
-├── genres/                      # One file per genre (created on demand)
-│   ├── _template.md             # Template for new genre files
-│   └── [genre].md
-│
-├── pitfalls/                    # Failure modes, indexed by symptom
-│   ├── _index.md                # Symptom → file lookup
-│   └── [symptom].md
-│
-├── examples/                    # Rated prompt examples
-│   ├── _index.md
-│   └── [song-slug].md
-│
-└── research-log/                # Raw research dumps (pre-distillation)
-    └── YYYY-MM-DD-[topic].md
-```
-
----
-
-## Files Claude Loads Every Session
+## Start Here
 
 | File | Purpose |
 |------|---------|
-| `KNOWLEDGE_STATUS.md` | Fast gap detection — what's covered, what's thin |
-| `core/suno-v5-fundamentals.md` | Always-loaded base layer for prompt mechanics |
-| `genres/[genre].md` | Loaded per-request when genre matches |
-| `pitfalls/_index.md` | Consulted when user reports an issue |
+| [core/suno-v6-fundamentals.md](core/suno-v6-fundamentals.md) | Current fields, style brief, vocal direction, lyric preservation and sources |
+| [core/sliders.md](core/sliders.md) | Creative controls, including Variety and Max Mode |
+| [core/metatags.md](core/metatags.md) | Sparse lyric cues and limits of unverified tag rules |
+| [KNOWLEDGE_STATUS.md](KNOWLEDGE_STATUS.md) | Coverage, evidence gaps and historical genre settings |
+| [SKILL.md](SKILL.md) / [CLAUDE.md](CLAUDE.md) | Reusable generation and maintenance instructions |
+| `genres/[genre].md` | Genre vocabulary and historical examples; check version scope |
+| [pitfalls/_index.md](pitfalls/_index.md) | Reported problems and confirmed fixes |
+| `research-log/` | Dated research and experiments |
 
----
+## Generation Workflow
 
-## Scope
+1. Read the coverage map and current core guides.
+2. Load relevant genre material; separate historical suggestions from v6 evidence.
+3. Produce four artifacts: **Title**, **Style block**, **Lyrics**, **Settings**. Settings includes Exclude and applicable controls, not just sliders.
+4. Preserve supplied lyrics and deliberate pronunciation spellings unless edits are requested.
+5. Iterate with one change at a time. Record sources or listening evidence before marking a result confirmed.
 
-All content is scoped to **Suno v5**. If a finding applies to an earlier version, it is labeled explicitly (e.g., `[v4 only]`). Version differences that affect prompting behavior are documented in `core/suno-v5-fundamentals.md`.
+The CLI tools `generate.py` and `feedback.py` load the v6 core guide. They use Anthropic to draft prompts or diagnose issues; they do not generate Suno audio or automatically browse for new research. Their existing output markers remain compatible.
 
----
+## Scope and Updates
 
-## Contributing / Updating
+Use [core/suno-v5-fundamentals.md](core/suno-v5-fundamentals.md) only for historical context. A documented field or control is not evidence that a prompt trick works reliably, and a polished template is not an audio test.
 
-Claude updates this repo autonomously as part of its workflow. Manual edits are welcome — if you add findings, update `KNOWLEDGE_STATUS.md` to reflect the new coverage.
+When updating the KB, cite the source and date, identify the model and evidence level, and update `KNOWLEDGE_STATUS.md`. Record uncertain ideas in the research log; put confirmed remedies in `pitfalls/` only after a reported listening test.

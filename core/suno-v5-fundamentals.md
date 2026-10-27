@@ -1,4 +1,6 @@
-# Suno v5 Fundamentals
+# Suno v5 Fundamentals — Historical Reference
+
+> **Historical scope:** Start with [suno-v6-fundamentals.md](suno-v6-fundamentals.md) for current guidance. This file preserves older claims, including unverified limits and behavioral rules; they were not revalidated in the 2026-10-27 v6 review and must not be treated as current facts.
 
 > **Status:** Researched and verified — 2026-05-09
 > **Scope:** Suno v5 and v5.5. v4/v4.5 differences noted explicitly.
