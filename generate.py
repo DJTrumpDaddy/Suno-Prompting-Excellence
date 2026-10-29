@@ -13,8 +13,6 @@ import os
 import sys
 from pathlib import Path
 
-import anthropic
-
 REPO_ROOT = Path(__file__).parent
 CORE_DIR = REPO_ROOT / "core"
 GENRES_DIR = REPO_ROOT / "genres"
@@ -179,6 +177,8 @@ def generate(idea: str, genre_hint: str | None, model: str) -> None:
         print("ERROR: ANTHROPIC_API_KEY environment variable not set.", file=sys.stderr)
         sys.exit(1)
 
+    import anthropic
+
     client = anthropic.Anthropic(api_key=api_key)
     kb = load_knowledge_base(genre_hint)
 
@@ -222,7 +222,15 @@ def main() -> None:
     )
     parser.add_argument("--list-genres", action="store_true", help="List available genre files")
 
+    # Importing the revision helpers does not require the Anthropic SDK or a key.
+    from revision import add_revision_arguments, run_revision_cli
+
+    add_revision_arguments(parser)
+
     args = parser.parse_args()
+
+    if run_revision_cli(args, parser, load_knowledge_base, SYSTEM_PROMPT, print_output):
+        return
 
     if args.list_genres:
         list_genres()
